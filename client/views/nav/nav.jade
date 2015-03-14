@@ -8,10 +8,8 @@ nav.navbar.navbar-default.navbar-fixed-top(ng-controller='NavCtrl')
         span.icon-bar
       a.navbar-brand(ui-sref='home') Angular Prototype
     #navbar.collapse.navbar-collapse
-      ul.nav.navbar-nav.navbar-right(ng-hide='email')
-        li: a(ui-sref='register') Register
-        li: a(ui-sref='login') Login
-      ul.nav.navbar-nav.navbar-right(ng-show='email')
-        li: a(href='#', ng-click='logout()') {{email}}
-      ul.nav.navbar-nav.navbar-right
+      ul.nav.navbar-nav.navbar-right(ng-if='user')
         li: a(ui-sref='home') Home
+        li: a(ui-sref='account.profile') {{user.username}}
+        li: a(href='#', ng-click='logout()') Log Out
+      ul.nav.navbar-nav.navbar-right

@@ -8,7 +8,6 @@ angular.module('dating-app')
       .then(response => {
         $window.localStorage.user = JSON.stringify(response.data.user);
         $rootScope.user = response.data.user;
-        console.log(response.data);
         $state.go('login');
       });
     };
