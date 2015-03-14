@@ -14,7 +14,8 @@ let userSchema = mongoose.Schema({
   username: String,
   realname: String,
   email: String,
-  bio : String,
+  phone: String,
+  bio: String,
   location: String,
   interests: [String],
   age: Number,
@@ -22,7 +23,7 @@ let userSchema = mongoose.Schema({
   gender: String,
   lookingFor: String,
   photos: [String],
-  gifts: [{type: mongoose.Schema.ObjectId, ref: 'Gift'}],
+  // gifts: [{type: mongoose.Schema.ObjectId, ref: 'Gift'}],
   createdAt: {type: Date, default: Date.now, required: true}
 });
 

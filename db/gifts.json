@@ -1,0 +1,22 @@
+[
+  {
+    "_id" : {"$oid":"000000000000000000000d01"},
+    "name" : "Roses",
+    "cost" : 19.95,
+    "photo" : "roses.jpeg",
+    "createdAt" : {"$date":1421111111111},
+    "sender" : null,
+    "receiver" : null,
+    "dateGiven" : null
+  },
+  {
+    "_id" : {"$oid":"000000000000000000000d02"},
+    "name" : "Chocolates",
+    "cost" : 14.95,
+    "photo" : "chocolates.jpeg",
+    "createdAt" : {"$date":1421112111111},
+    "sender" : {"$oid":"000000000000000000000001"},
+    "receiver" : {"$oid":"000000000000000000000002"},
+    "dateGiven" : {"$date":1426357057000}
+  }
+]
