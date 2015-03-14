@@ -1,15 +1,10 @@
-nav.navbar.navbar-default.navbar-fixed-top(ng-controller='NavCtrl')
-  .container-fluid
-    .navbar-header
-      button.navbar-toggle.collapsed(data-toggle="collapse", data-target="#navbar")
-        span.sr-only Toggle navigation
-        span.icon-bar
-        span.icon-bar
-        span.icon-bar
-      a.navbar-brand(ui-sref='home') Angular Prototype
-    #navbar.collapse.navbar-collapse
-      ul.nav.navbar-nav.navbar-right(ng-if='user')
-        li: a(ui-sref='home') Home
-        li: a(ui-sref='account.profile') {{user.username}}
-        li: a(href='#', ng-click='logout()') Log Out
-      ul.nav.navbar-nav.navbar-right
+.container(ng-controller='NavCtrl')
+  #sidebar.bs-sidebar.affix
+    ul.nav.nav-pills.nav-stacked
+      li: a(ui-sref='home') Home
+      li: a(ui-sref='account.profile') {{user.username}}
+      li: a(href='#', ng-click='logout()') Log Out
+    
+    
+    
+    
