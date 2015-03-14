@@ -6,8 +6,6 @@ angular.module('dating-app')
       $state.go('login');
     }
 
-    $scope.photos = [];
-
     $scope.uploadPictures = function(photos) {
       User.upload($rootScope.user._id, photos);
     };

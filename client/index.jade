@@ -8,7 +8,7 @@ html(lang='en', ng-app='dating-app')
     script(src='/vendor/angular/angular.js')
     link(rel='stylesheet', href='/vendor/bootstrap/dist/css/bootstrap.min.css')
     link(rel='stylesheet', href='/vendor/font-awesome/css/font-awesome.min.css')
-    link(ng-if='!user', rel='stylesheet', href='/login.css')
+    link(ng-if='!user.bio', rel='stylesheet', href='/login.css')
     link(ng-if='user.bio', rel='stylesheet', href='/index.css')
     link(rel='shortcut icon', href='/favicon.ico')
 
