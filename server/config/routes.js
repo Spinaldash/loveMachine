@@ -8,5 +8,7 @@ module.exports = [
 
   {method: 'get', path: '/gifts', config: require('../routes/gifts/index')},
   {method: 'get', path: '/gifts/{giftId}', config: require('../routes/gifts/show')},
-  {method: 'get', path: '/users/{userId}/gifts', config: require('../routes/gifts/usergifts')}
+  {method: 'get', path: '/users/{userId}/gifts', config: require('../routes/gifts/usergifts')},
+
+  {method: 'post', path: '/messages/email', config: require('../routes/messages/email')}
 ];
