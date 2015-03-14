@@ -1,10 +1,13 @@
 'use strict';
 
 angular.module('dating-app')
-  .controller('RegisterCtrl', ['$rootScope', '$scope', '$window', '$state', '$auth', function($rootScope, $scope, $window, $state, $auth){
+  .controller('RegisterCtrl', ['$rootScope', '$scope', '$window', '$state', '$auth', 'User', function($rootScope, $scope, $window, $state, $auth, User){
 
     $scope.finish = function(user) {
-      console.log(user);
-    }
+      User.register(user)
+      .then(response => {
+        $state.go('login');
+      });
+    };
 
   }]);

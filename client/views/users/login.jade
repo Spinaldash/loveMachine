@@ -1,8 +1,14 @@
 .container
   .row
-    .col-md-4
-    .col-md-4
+    .col-md-3
+    .col-md-6
       .jumbotron.text-center
+        .stepwizard
+          .stepwizard-row
+            .stepwizard-step
+              button.btn.btn-primary.btn-circle(type='button') 1
+            .stepwizard-step
+              button.btn.btn-default.btn-circle(type='button') 2
+        .page-header.text-center: h3 Sign In
         button.btn.btn-primary(type='submit', ng-click='submit("facebook")'): i.fa.fa-facebook &nbsp; Sign in with Facebook 
-    .col-md-4
-    
+    .col-md-3
