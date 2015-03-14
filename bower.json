@@ -3,10 +3,7 @@
   "version": "1.0.0",
   "homepage": "https://github.com/Spinaldash/loveMachine",
   "authors": [
-    "Michael J. Perez <mjosephvp@gmail.com>",
-    "Cade",
-    "Jose",
-    "Emile",
+    "Michael J. Perez <mjosephvp@gmail.com>"
   ],
   "license": "MIT",
   "dependencies": {

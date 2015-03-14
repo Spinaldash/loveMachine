@@ -14,7 +14,7 @@ server.connection({port:process.env.PORT});
 
 mongoose.connection.once('open', function(){
   server.register(plugins, function(){
-    server.auth.strategy('session', 'cookie', true, authentication);
+    server.auth.strategy('token', 'jwt', true, authentication);
     server.route(routes);
     server.start(function(){
       console.log('info', server.info.uri);
