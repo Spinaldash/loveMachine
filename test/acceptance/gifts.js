@@ -13,7 +13,6 @@ var beforeEach = lab.beforeEach;
 var server = require('../../server/index');
 var cp = require('child_process');
 var dbname = process.env.MONGO_URL.split('/')[3];
-var Gift = require('../../server/models/gift');
 var User = require('../../server/models/user');
 var token;
 
@@ -149,4 +148,3 @@ describe('Gifts Controller', function() {
     });
   });
 });
-

@@ -14,7 +14,8 @@ let userSchema = mongoose.Schema({
   username: String,
   realname: String,
   email: String,
-  bio : String,
+  phone: String,
+  bio: String,
   location: String,
   interests: [String],
   age: Number,
@@ -56,7 +57,7 @@ userSchema.statics.facebook = function(payload, cb) {
     accessToken = qs.parse(accessToken);
     Request.get({url: graphApiUrl, qs:accessToken, json:true}, (err, response, profile) => {
       let photoUrl = 'https://graph.facebook.com/' + profile.id + '/picture?type=large';
-      cb({facebookId:profile.id, realname:profile.name, photos:[photoUrl]});      
+      cb({facebookId:profile.id, realname:profile.name, photos:[photoUrl]});
     });
   });
 };
