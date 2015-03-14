@@ -22,7 +22,7 @@ let userSchema = mongoose.Schema({
   gender: String,
   lookingFor: String,
   photos: [String],
-  gifts: [{type: mongoose.Schema.ObjectId, ref: 'Gift'}],
+  // gifts: [{type: mongoose.Schema.ObjectId, ref: 'Gift'}],
   createdAt: {type: Date, default: Date.now, required: true}
 });
 
@@ -50,7 +50,7 @@ userSchema.statics.facebook = function(payload, cb) {
     code: payload.code,
     client_id: payload.clientId,
     redirect_uri: payload.redirectUri,
-    client_secret: process.env.FACEBOOK_SECRET
+    client_secret: process.env.FB_SECRET
   };
   Request.get({url: accessTokenUrl, qs: params, json: true}, (err, response, accessToken) => {
     accessToken = qs.parse(accessToken);
