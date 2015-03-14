@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('angular-prototype')
+angular.module('dating-app')
   .controller('NavCtrl', ['$rootScope', '$scope', 'User', function($rootScope, $scope, User){
     $scope.logout = function(){
       User.logout().then(function(){
