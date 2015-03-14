@@ -148,4 +148,3 @@ describe('Gifts Controller', function() {
     });
   });
 });
-
