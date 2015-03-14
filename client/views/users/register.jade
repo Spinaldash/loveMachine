@@ -1,0 +1,39 @@
+h1 Register
+
+.container
+  .row
+    .col-md-4
+    .col-md-4
+      .jumbotron
+        .form-group
+          input.form-control(type='text', ng-model='user.username', placeholder='Enter a username', autofocus, required)
+        .form-group
+          input.form-control(type='email', ng-model='user.email', placeholder='Enter an Email', required)
+        .form-group
+          textarea.form-control(type='text', rows='4', columns='20', ng-model='user.bio', placeholder='You in a nutshell', required)
+        .form-group
+          input.form-control(type='text', ng-model='user.location', placeholder='Enter your zipcode', required)
+        .form-group 
+          input.form-control(type='number', ng-model='user.age', placeholder='Enter your age', required)
+        .form-group
+          select.form-control(ng-model='user.gender', required)
+            option(value='') I am
+            option Male
+            option Female
+            option Other
+        .form-group
+          select.form-control(ng-model='user.lookingFor', required)
+            option(value='') Looking For
+            option Male
+            option Female
+            option Other
+        .form-group
+          button.btn.btn-info(ng-click='finish(user)') Complete Registration
+    .col-md-4
+        //- username: String,
+        //- email: String,
+        //- bio : String,
+        //- location: String,
+        //- age: Number, 
+        //- gender: String, /select
+        //- lookingFor: String, /select

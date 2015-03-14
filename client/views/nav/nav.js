@@ -1,10 +1,10 @@
 'use strict';
 
 angular.module('dating-app')
-  .controller('NavCtrl', ['$rootScope', '$scope', 'User', function($rootScope, $scope, User){
+  .controller('NavCtrl', ['$rootScope', '$scope', '$window', '$state', function($rootScope, $scope, $window, $state){
     $scope.logout = function(){
-      User.logout().then(function(){
-        delete $rootScope.email;
-      });
+      delete $rootScope.email;
+      $window.localStorage.clear();
+      $state.go('login');
     };
   }]);

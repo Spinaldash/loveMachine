@@ -2,18 +2,18 @@
 
 angular.module('dating-app', ['ui.router', 'ngMessages', 'satellizer'])
   .config(['$stateProvider', '$urlRouterProvider', '$authProvider', function($stateProvider, $urlRouterProvider, $authProvider) {
-    $urlRouterProvider.otherwise('/');
+    $urlRouterProvider.otherwise('/login');
 
     $stateProvider
-      .state('home', {url:'/', templateUrl:'/views/general/home.html'})
-      .state('faq', {url:'/faq', templateUrl:'/views/general/faq.html'})
-      .state('contact', {url:'/contact', templateUrl:'/views/general/contact.html'})
+      .state('home', {url:'/', templateUrl:'/views/general/home.html', controller: 'HomeCtrl'})
 
-      .state('register', {url:'/register', templateUrl:'/views/users/users.html', controller:'UsersCtrl'})
-      .state('login', {url:'/login', templateUrl:'/views/users/users.html', controller:'UsersCtrl'});
+      .state('login', {url:'/login', templateUrl:'/views/users/login.html', controller:'LoginCtrl'})
+      .state('register', {url:'/register', templateUrl:'/views/users/register.html', controller:'RegisterCtrl'});
 
     $authProvider.facebook({ clientId: '1609867685900087' });
+  }])
+  .run(['$rootScope', '$window', '$auth',  function($rootScope, $window, $auth){
+    if ($auth.isAuthenticated()) {
+      $rootScope.user = JSON.parse($window.localStorage.user);
+    }
   }]);
-  // .run(['$rootScope', function($rootScope){
-  //
-  // }]);
