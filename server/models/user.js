@@ -50,13 +50,13 @@ userSchema.statics.facebook = function(payload, cb) {
     code: payload.code,
     client_id: payload.clientId,
     redirect_uri: payload.redirectUri,
-    client_secret: process.env.FACEBOOK_SECRET
+    client_secret: process.env.FB_SECRET
   };
   Request.get({url: accessTokenUrl, qs: params, json: true}, (err, response, accessToken) => {
     accessToken = qs.parse(accessToken);
     Request.get({url: graphApiUrl, qs:accessToken, json:true}, (err, response, profile) => {
       let photoUrl = 'https://graph.facebook.com/' + profile.id + '/picture?type=large';
-      cb({facebookId:profile.id, realname:profile.name, photos:[photoUrl]});      
+      cb({facebookId:profile.id, realname:profile.name, photos:[photoUrl]});
     });
   });
 };
