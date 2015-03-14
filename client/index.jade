@@ -5,25 +5,26 @@ html(lang='en', ng-app='dating-app')
     meta(http-equiv='X-UA-Compatible', content='IE=edge')
     meta(name='viewport', content='width=device-width, initial-scale=1')
     title Dating App
+    script(src='/vendor/angular/angular.js')
     link(rel='stylesheet', href='/vendor/bootstrap/dist/css/bootstrap.min.css')
     link(rel='stylesheet', href='/vendor/font-awesome/css/font-awesome.min.css')
+    link(ng-if='!user', rel='stylesheet', href='/login.css')
     link(ng-if='user.bio', rel='stylesheet', href='/index.css')
-    link(ng-if='!user.bio', rel='stylesheet', href='/login.css')
     link(rel='shortcut icon', href='/favicon.ico')
       
     //- //if lt IE 9
     //-   script(src='https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js')       
     //-   script(src='https://oss.maxcdn.com/respond/1.4.2/respond.min.js')
-  body
+  body.ng-cloak(ng-cloak)
     div(ng-if='user.bio')
       include ./views/nav/nav
 
     div(ui-view)
 
     script(src='/vendor/jquery/dist/jquery.js')
-    script(src='/vendor/angular/angular.js')
     script(src='/vendor/angular-messages/angular-messages.js')
     script(src='/vendor/angular-ui-router/release/angular-ui-router.js')
+    script(src='/vendor/angular-sanitize/angular-sanitize.min.js')
     script(src='/vendor/lodash/lodash.js')
     script(src='/vendor/moment/moment.js')
     script(src='/vendor/bootstrap/dist/js/bootstrap.min.js')

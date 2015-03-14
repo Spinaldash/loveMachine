@@ -2,7 +2,7 @@
 
 angular.module('dating-app')
   .controller('LoginCtrl', ['$rootScope', '$scope', '$window', '$state', '$auth', '$location', function($rootScope, $scope, $window, $state, $auth, $location){
-    if ($rootScope.user.bio) {
+    if ($rootScope.user) {
       $state.go('home');
     }
 
