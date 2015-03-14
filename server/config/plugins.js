@@ -11,6 +11,6 @@ module.exports = [
     }
   },
   {
-    register: require('hapi-auth-cookie')
+    register: require('hapi-auth-jwt')
   }
 ];

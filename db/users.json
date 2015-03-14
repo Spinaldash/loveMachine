@@ -1,14 +1,14 @@
 [
   {
     "_id" : {"$oid":"000000000000000000000001"},
-    "email" : "bob@aol.com",
-    "password" : "$2a$08$NBLq8G/UigORU4Ak6fr8yuIIbvsF3hMMrSJNk0QgXSC8b6hfI33pq",
-    "createdAt" : {"$date":1424828111020}
+    "facebookId" : "123",
+    "username" : "existinguser",
+    "createdAt" : {"$date":1421111111111}
   },
   {
     "_id" : {"$oid":"000000000000000000000002"},
-    "email" : "sam@aol.com",
-    "password" : "$2a$08$NBLq8G/UigORU4Ak6fr8yuIIbvsF3hMMrSJNk0QgXSC8b6hfI33pq",
+    "facebookId" : "321",
+    "username" : "existinguser2",
     "createdAt" : {"$date":1424828111020}
   }
 ]
