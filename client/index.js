@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('dating-app', ['ui.router', 'ngSanitize','ngMessages', 'satellizer'])
+angular.module('dating-app', ['ui.router', 'ngSanitize','ngMessages', 'satellizer', 'angularFileUpload'])
   .config(['$stateProvider', '$urlRouterProvider', '$authProvider', function($stateProvider, $urlRouterProvider, $authProvider) {
     $urlRouterProvider.otherwise('/login');
 
