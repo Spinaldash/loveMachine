@@ -3,13 +3,10 @@
 angular.module('dating-app')
   .factory('User', ['$http', function($http){
 
-    function register(user){
-      return $http.post('/register', user);
+    function register(user) {
+      console.log('User', user);
+      // return $http.post(`/users/${user._id}`, user);
     }
 
-    function login(user){
-      return $http.post('/login', user);
-    }
-
-    return {register:register, login:login};
+    return {register:register};
   }]);
