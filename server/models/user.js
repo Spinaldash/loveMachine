@@ -7,6 +7,10 @@ let qs = require('querystring');
 let Request = require('request');
 let moment = require('moment');
 let jwt = require('jwt-simple');
+let path = require('path');
+let AWS = require('aws-sdk');
+let crypto = require('crypto');
+let concat = require('concat-stream');
 let User;
 
 let userSchema = mongoose.Schema({
@@ -23,7 +27,6 @@ let userSchema = mongoose.Schema({
   gender: String,
   lookingFor: String,
   photos: [String],
-  // gifts: [{type: mongoose.Schema.ObjectId, ref: 'Gift'}],
   createdAt: {type: Date, default: Date.now, required: true}
 });
 
@@ -59,6 +62,22 @@ userSchema.statics.facebook = function(payload, cb) {
       let photoUrl = 'https://graph.facebook.com/' + profile.id + '/picture?type=large';
       cb({facebookId:profile.id, realname:profile.name, photos:[photoUrl]});
     });
+  });
+};
+
+userSchema.methods.upload = function(file, name, cb){
+  let s3 = new AWS.S3();
+  crypto.pseudoRandomBytes(8, (ex, buf) => {
+    let hex = buf.toString('hex');
+    let loc = this._id + '/' + hex + path.extname(name);
+    let url = 'https://s3-us-west-1.amazonaws.com/' + process.env.AWS_BUCKET + '/' + loc;
+    this.photos.push(url);
+    file.pipe(concat((buf) => {
+      let params = {Bucket: process.env.AWS_BUCKET, Key: loc, Body: buf, ACL: 'public-read'};
+      s3.putObject(params, () => {
+        this.save(cb);
+      });
+    }));
   });
 };
 
