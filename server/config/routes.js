@@ -7,6 +7,7 @@ module.exports = [
   {method: 'delete', path: '/logout', config: require('../routes/users/logout')},
   {method: 'get', path: '/users/{userId}', config: require('../routes/users/profile')},
   {method: 'post', path: '/users/{userId}', config: require('../routes/users/update')},
+  {method: 'get', path: '/users', config: require('../routes/users/index')},
 
   {method: 'get', path: '/gifts', config: require('../routes/gifts/index')},
   {method: 'get', path: '/gifts/{giftId}', config: require('../routes/gifts/show')},
