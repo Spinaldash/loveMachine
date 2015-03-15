@@ -1,4 +1,4 @@
-.container
+.container(ng-controller="RegisterCtrl")
   .row
     .col-md-3
     .col-md-6
@@ -27,13 +27,14 @@
             option Male
             option Female
             option Other
-        .form-group
-          select.form-control(ng-model='newUser.lookingFor', required)
-            option(value='') Looking For
-            option Male
-            option Female
-            option Other
-        .form-group
+        .form-group.text-center
+          h4 Looking For:
+          span.margin-r(ng-repeat='(preference,enabled) in newUser.lookingFor') &nbsp; {{preference}} &nbsp; 
+            i.fa.fa-mars(ng-show="$index === 0")
+            i.fa.fa-venus(ng-show="$index === 1")
+            i.fa.fa-transgender(ng-show="$index === 2")
+            input(type='checkbox', ng-model="newUser.lookingFor[preference]") 
+        .form-group.text-center
           button.btn.btn-info(ng-click='finish(newUser)') Complete Registration
     .col-md-3
         //- username: String,

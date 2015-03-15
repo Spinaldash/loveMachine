@@ -13,15 +13,17 @@ html(lang='en', ng-app='dating-app')
     link(rel='shortcut icon', href='/favicon.ico')
 
   body.ng-cloak(ng-cloak)
-    .container-fluid  
-      div(ng-if='user.bio')
-        include ./views/nav/topnav
     .container
-      .row
+      .row(ng-if='user.bio')
+        div
+          include ./views/nav/topnav
         .col-md-3
-          div(ng-if='user.bio')
+          div
             include ./views/nav/nav
         .col-md-9
+          div(ui-view)
+      .row(ng-if='!user.bio')
+        .col-md-12
           div(ui-view)
     
     
