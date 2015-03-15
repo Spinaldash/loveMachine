@@ -3,6 +3,10 @@
 angular.module('dating-app')
   .factory('User', ['$rootScope', '$http', '$upload', function($rootScope, $http, $upload){
 
+    function findAll() {
+      return $http.get('/users');
+    }
+
     function register(userId,user) {
       return $http.post(`/users/${userId}`, user);
     }
@@ -24,5 +28,5 @@ angular.module('dating-app')
       }
     }
 
-    return {register:register, upload:upload};
+    return {findUsers:findUsers, register:register, upload:upload};
   }]);

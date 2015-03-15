@@ -9,8 +9,13 @@
       .col-md-4
         .profile-picture
           img(ng-src='{{user.photos[0]}}')
-    .col-md-12.page-header
+    .col-md-6.page-header
       .col-md-6
         h4 Photos
+      .col-md-6.text-right
+        h5: a.btn-modify(ui-sref='account.edit') Add Photos
+    .col-md-6.page-header
+      .col-md-6
+        h4 Gifts
       .col-md-6.text-right
         h5: a.btn-modify(ui-sref='account.edit') Add Photos
