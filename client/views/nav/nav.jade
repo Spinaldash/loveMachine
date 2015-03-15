@@ -1,6 +1,46 @@
-.container(ng-controller='NavCtrl')
-  #sidebar.bs-sidebar.affix
-    ul.nav.nav-pills.nav-stacked
-      li: a(ui-sref='home') Home
-      li: a(ui-sref='account.profile') {{user.username}}
-      li: a(href='#', ng-click='logout()') Log Out
+.col-md-12.side-menu(ng-controller='NavCtrl')
+  .col-md-12
+    .col-md-4(style='padding-left: 0px')
+      .image
+        img(ng-src='{{user.photos[0]}}', height='50', widht='50')
+    .col-md-8(style='padding-left: 0px')
+      h6(style='font-weight: bolder; font-size: 1.5rem; color: #999; margin-top: 2px;') {{user.realname}}
+      h6 {{user.email}}
+  
+  .col-md-12
+    .header
+      small.text-capitalize information
+    .item
+      a(ui-sref='account.profile')
+        span.fa.fa-user
+        span my account
+    .item
+      a(href='#')
+        span.fa.fa-history
+        span my history
+        
+    .header
+      small.text-capitalize Matches
+    .item
+      a(href='#')
+        span.fa.fa-gift
+        span my matches
+    .item
+      a(href='#')
+        span.fa.fa-comment
+        span my conversations
+        
+    .header
+      small.text-capitalize Gifts
+    .item
+      a(href='#')
+        span.fa.fa-gift
+        span browse gifts
+    .item
+      a(href='#')
+        span.fa.fa-mail-forward
+        span sent gifts
+    .item
+      a(href='#')
+        span.fa.fa-mail-reply
+        span received gift
