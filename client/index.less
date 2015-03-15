@@ -1,6 +1,7 @@
 body{
   background-color: white;
   padding-top: 50px;
+  font-family: 'Open Sans', sans-serif;
 }
 
 .navbar-default {
@@ -14,6 +15,17 @@ body{
 
   .navbar-nav>li>a {
     color: #fff;
+  }
+
+  input.form-control {
+    background: #f32f2f;
+    border: transparent;
+    box-shadow: none;
+    color: #fff
+
+  }
+  ::-webkit-input-placeholder {
+    color: rgba(255,255,255,0.5);
   }
 }
 
@@ -32,44 +44,41 @@ a.btn-modify {
 }
 
 .drop-box {
-    background: #F8F8F8;
-    border: 5px dashed #DDD;
-    padding: 50px 50px;
-    margin: 10px;
-    cursor: pointer;
+  background: #F8F8F8;
+  border: 5px dashed #DDD;
+  padding: 50px 50px;
+  margin: 10px;
+  cursor: pointer;
 }
 
 .dragover {
-    border: 5px dashed blue;
+  border: 5px dashed blue;
 }
 
-.border-black {
-  border-right: 3px solid black;
-  height: 100%;
+.side-menu {
+  border-right: 1px solid #e8e8e8;
+  height: 95vh;
+  padding-top: 25px;
+
+  .header {
+    color: #ddd;
+    font-weight: 700;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #f9f9f9;
+  }
+
+  .item a {
+    color: #aaa;
+    font-weight: 500;
+    text-transform: capitalize;
+    text-decoration: none;
+
+    .fa {
+      width: 12px;
+      margin-right: 10px;
+    }
+  }
+
 }
-
-
-
-
-.bs-sidebar.affix {
-  height:100%;
-  border-right: 3px solid black;
-}
-
-// @media (min-width: 768px) {
-//   .bs-sidebar.affix {
-//     width: 158px;
-//   }
-// }
-//
-// @media (min-width: 992px) {
-//   .bs-sidebar.affix {
-//     width: 213px;
-//   }
-// }
-//
-// @media (min-width: 1200px) {
-//   .bs-sidebar.affix {
-//     width: 263px;
-//   }
-// }
