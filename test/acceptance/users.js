@@ -25,6 +25,22 @@ describe('Users Controller', function() {
       });
     });
   });
+  describe('get /users', function() {
+    it('should return compatible list of users', function(done) {
+      var options = {
+        method: 'get',
+        url: '/users',
+        headers: {
+          Authorization: 'Bearer ' + token
+        }
+      };
+      server.inject(options, function(response) {
+        expect(response.statusCode).to.equal(200);
+        expect(response.result.users[0].username).to.equal('Miss');
+        done();
+      });
+    });
+  });
   describe('delete photo', function() {
     it('should delete a photo', function(done) {
       var options = {
