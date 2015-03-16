@@ -20,5 +20,8 @@
         img.img-responsive(ng-src='{{photo}}' width='125' height='125')
     .col-md-12: a(ui-sref='account.upload').btn.btn-modify.btn-full Add Pictures
     .col-md-12.page-header: h4 Gifts
-    .col-md-12
+    .col-md-12(ng-if='!gifts')
       h6 You do not have any gifts :(
+    .col-md-12(ng-if='gifts')
+      .col-md-3(ng-repeat='gift in gifts')
+        img(src='http://placehold.it/75x75')
