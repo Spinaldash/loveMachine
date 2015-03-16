@@ -14,6 +14,7 @@ module.exports = [
   {method: 'get', path: '/users/{userId}/gifts', config: require('../routes/gifts/usergifts')},
 
   {method: 'post', path: '/users/{userId}/upload', config: require('../routes/photos/upload')},
+  {method: 'delete', path: '/users/{userId}/photo', config: require('../routes/photos/delete')},
 
   {method: 'post', path: '/messages/email', config: require('../routes/messages/email')},
   {method: 'post', path: '/messages/txt', config: require('../routes/messages/txt')}
