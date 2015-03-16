@@ -1,7 +1,26 @@
-.container
-  .row
-    h1 Edit
-    .drop-box(ng-file-drop, ng-file-select, ng-model='photos', drag-over-class='dragover', ng-multiple='true', allow-dir='true', accept='image/*')
-      div(ng-if='!photos') Drop Images here
-      div(ng-if='photos', ng-repeat='photo in photos', style='font:smaller') {{photo}}
-    button.btn.btn-primary(ng-click='uploadPictures(photos)') Upload
+form(style='margin-top: 50px;')
+.form-group
+  input.form-control(type='text', ng-model='user.realname', placeholder='Real Name')
+.form-group
+  input.form-control(type='email', ng-model='user.email', placeholder='Email')
+.form-group
+  input.form-control(type='text', ng-model='user.location', placeholder='Location')
+.form-group
+  textarea.form-control(ng-model='user.bio', rows='4', placeholder='Bio')
+.form-group
+  submit.btn.btn-love(ng-click='submit(user)') Update
+
+//- facebookId: {type: String, required: true},
+//- username: String,
+//- realname: String,
+//- email: String,
+//- phone: String,
+//- bio: String,
+//- location: String,
+//- interests: [String],
+//- age: Number,
+//- height: String,
+//- gender: String,
+//- lookingFor: String,
+//- photos: [String],
+//- createdAt: {type: Date, default: Date.now, required: true}

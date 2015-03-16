@@ -8,7 +8,7 @@ angular.module('dating-app')
 
     User.findAll()
     .then(response => {
-      console.log(response);
+      $scope.users = response.data.users;
     });
 
   }]);

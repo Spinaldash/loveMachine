@@ -2,45 +2,47 @@
   .col-md-12
     .col-md-4(style='padding-left: 0px')
       .image
-        img(ng-src='{{user.photos[0]}}', height='50', widht='50')
+        img(ng-src='{{user.photos[0]}}', height='50', widht='50', style='border-radius: 5px;')
     .col-md-8(style='padding-left: 0px')
       h6(style='font-weight: bolder; font-size: 1.5rem; color: #999; margin-top: 2px;') {{user.realname}}
-      h6 {{user.email}}
+      h6.text-capitalize.item: a(ui-sref='account.profile') my account
   
   .col-md-12
     .header
       small.text-capitalize information
     .item
-      a(ui-sref='account.profile')
-        span.fa.fa-user
-        span my account
+      h5
+        a(ui-sref='home')
+          span.fa.fa-navicon
+          span home
     .item
-      a(href='#')
-        span.fa.fa-history
-        span my history
+      h5
+        a(href='#')
+          span.fa.fa-history
+          span history
         
     .header
-      small.text-capitalize Matches
+      small.text-capitalize Communication
     .item
-      a(href='#')
-        span.fa.fa-gift
-        span my matches
-    .item
-      a(href='#')
-        span.fa.fa-comment
-        span my conversations
+      h5
+        a(href='#')
+          span.fa.fa-envelope-o
+          span messages
         
     .header
       small.text-capitalize Gifts
     .item
-      a(href='#')
-        span.fa.fa-gift
-        span browse gifts
+      h5
+        a(ui-sref='gifts.store')
+          span.fa.fa-gift
+          span browse gifts
     .item
-      a(href='#')
-        span.fa.fa-mail-forward
-        span sent gifts
+      h5
+        a(ui-sref='gifts.sent')
+          span.fa.fa-send
+          span sent gifts
     .item
-      a(href='#')
-        span.fa.fa-mail-reply
-        span received gift
+      h5
+        a(ui-sref='gifts.received')
+          span.fa.fa-send-o
+          span received gift

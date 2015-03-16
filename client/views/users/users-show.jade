@@ -1,0 +1,52 @@
+//- .col-md-12.page-header
+//-   .col-md-6
+//-     h4 Information
+//- .col-md-12
+//-   .col-md-4
+//-     .profile-picture
+//-       img.img-responsive(ng-src='{{showUser.photos[0]}}')
+//- .col-md-5
+//-   .page-header
+//-     h4 Gifts ({{gifts.length}})
+//-   .col-md-12(ng-if='!gifts')
+//-     h6 {{showUser.username}} does not have gifts! &nbsp;
+//-       a(href='#') Send a Gift!
+//-     
+//- .col-md-6.col-md-offset-1
+//-   .page-header
+//-     h4 Photos ({{showUser.photos.length}})
+//-   .col-md-4(ng-repeat='photo in showUser.photos')
+//-     .thumbnail
+//-       img.img-responsive(ng-src='{{photo}}' width='75' height='75')
+//- 
+//- 
+//- 
+//- 
+.col-md-12.page-header
+  .col-md-12
+    h4 {{showUser.username}}
+
+.col-md-12
+  .col-md-4
+    .col-md-12
+      .profile-picture.page-header
+        .thumbnail
+          img(ng-src='{{showUser.photos[0]}}')
+    .location(ng-if='showUser.location')
+      .col-md-1.text-center: i.fa.fa-map-marker
+      .col-md-10 {{showUser.location}}
+    .height(ng-if='showUser.height')
+      .col-md-1.text-right: i.fa.fa-ruler
+      .col-md-10 {{showUser.height}}
+
+  .col-md-8
+    .col-md-12
+      .messages.msg_receiver: p {{showUser.bio}}
+    .col-md-12.page-header: h4 Photos
+    .col-md-4(ng-repeat='photo in showUser.photos')
+      .thumbnail
+        img.img-responsive(ng-src='{{photo}}' width='125' height='125')
+    .col-md-12.page-header: h4 Gifts
+    .col-md-12(ng-if='!gifts')
+      h6 {{showUser.username}} does not have gifts! &nbsp;
+        a(ui-sref='gifts.store') Send a Gift!

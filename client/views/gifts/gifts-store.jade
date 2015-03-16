@@ -1,0 +1,7 @@
+.col-md-3.text-center(ng-repeat='gift in gifts', style='padding-top: 25px;')
+  .thumbnail
+    .col-md-12
+      img(ng-src='http://placehold.it/125x125')
+    .col-md-12
+      h5.text-capitalize: strong {{gift.name}}
+    a.btn.btn-love.btn-full: i.fa.fa-credit-card &nbsp; {{ gift.cost | currency}}

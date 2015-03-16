@@ -12,7 +12,16 @@ angular.module('dating-app', ['ui.router', 'ngSanitize','ngMessages', 'satellize
 
       .state('account', {url: '/account', templateUrl: '/views/account/account.html', abstract: true})
       .state('account.profile', {url: '', templateUrl: '/views/account/profile.html', controller:'AccountProfileCtrl'})
-      .state('account.edit', {url: '/edit', templateUrl: '/views/account/edit.html', controller:'AccountEditCtrl'});
+      .state('account.edit', {url: '/edit', templateUrl: '/views/account/edit.html', controller:'AccountEditCtrl'})
+      .state('account.upload', {url: '/upload', templateUrl: '/views/account/upload.html', controller:'AccountUploadCtrl'})
+
+      .state('users', {url: '/users', templateUrl: '/views/users/users.html', abstract: true})
+      .state('users.show', {url: '/{userId:[0-9a-f]{24}}', templateUrl: '/views/users/users-show.html', controller: 'UsersShowCtrl'})
+
+      .state('gifts', {url: '/gifts', templateUrl: '/views/gifts/gifts.html', abstract: true})
+      .state('gifts.store', {url: '', templateUrl: '/views/gifts/gifts-store.html', controller: 'GiftsStoreCtrl'})
+      .state('gifts.sent', {url: '/sent', templateUrl: '/views/gifts/gifts-sent.html', controller: 'GiftsSentCtrl'})
+      .state('gifts.received', {url: '/received', templateUrl: '/views/gifts/gifts-received.html', controller: 'GiftsReceivedCtrl'});
 
     $authProvider.facebook({ clientId: '1609867685900087' });
   }])
