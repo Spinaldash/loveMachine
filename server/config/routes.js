@@ -13,6 +13,7 @@ module.exports = [
   {method: 'post', path: '/users/{userId}/upload', config: require('../routes/photos/upload')},
   {method: 'delete', path: '/users/{userId}/photo', config: require('../routes/photos/delete')},
   {method: 'post', path: '/users/{userId}/wink', config: require('../routes/incidents/wink')},
+  {method: 'post', path: '/users/{userId}/date', config: require('../routes/proposals/create')},
 
   {method: 'get', path: '/incidents', config: require('../routes/incidents/index')},
 
