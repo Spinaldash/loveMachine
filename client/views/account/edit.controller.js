@@ -1,20 +1,18 @@
 'use strict';
 
 angular.module('dating-app')
-  .controller('AccountEditCtrl', ['$rootScope', '$scope', '$state', 'User', function($rootScope, $scope, $state, User){
+  .controller('AccountEditCtrl', ['$rootScope', '$scope', '$window', '$state', 'User', function($rootScope, $scope, $window, $state, User){
     if (!$rootScope.user) {
       $state.go('login');
     }
 
-    $scope.uploadPictures = function(photos) {
-      User.upload($rootScope.user._id, photos);
-    };
-
-    $scope.$on('upload', function(e, count){
-      $scope.count = count;
-      if($scope.count === $scope.photos.length){
+    $scope.submit = function(user) {
+      User.update(user._id, user)
+      .then(response => {
+        $window.localStorage.user = JSON.stringify(response.data.user);
+        $rootScope.user = response.data.user;
         $state.go('account.profile');
-      }
-    });
+      });
+    };
 
   }]);

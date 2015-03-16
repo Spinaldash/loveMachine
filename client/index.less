@@ -1,62 +1,139 @@
+/* @base: #FF3838;
+@base-darker: #d21c1c; */
+@base: #009F5D;
+@base-darker: #008748;
+@white: #fff;
+
+
 body{
-  background-color: white;
+  background-color: @white;
   padding-top: 50px;
   font-family: 'Open Sans', sans-serif;
 }
 
 .navbar-default {
-  color: #fff ;
-  background-color: #FF3838;
-  border-color: #d21c1c;
+  color: @white ;
+  background-color: @base;
+  border-color: @base-darker;
 
   .navbar-brand {
-    color: #fff;
+    color: @white;
+  }
+  .navbar-brand:hover {
+    color: #eee;
+  }
+  .navbar-brand:focus {
+    color: @white;
   }
 
   .navbar-nav>li>a {
-    color: #fff;
+    color: @white;
 
     &:hover {
       color: #eee;
     }
+    &:hover {
+      color: @white;
+    }
   }
 
   input.form-control {
-    background: #f32f2f;
+    background: @base-darker;
     border: transparent;
     box-shadow: none;
-    color: #fff
+    color: @white
 
   }
   ::-webkit-input-placeholder {
     color: rgba(255,255,255,0.5);
   }
-}
 
-a.btn-modify {
-  text-decoration: none;
-  color: #e8e8e8;
-  background: white;
-  border-radius: 5px;
-  border: 1px solid #e8e8e8;
-  padding: 3px 5px;
-
-  &:hover {
-    border-color: #333;
-    color: #333;
+  .navbar-nav>.open>a:focus {
+    color: #fff;
+    background-color: @base-darker;
   }
 }
 
+.outer-image {
+  height: 125px;
+  width: 100%;
+  overflow: hidden;
+    img {
+      height: auto;
+      margin: 0 auto;
+      width: 100%;
+    }
+}
+
+.outer-image.thumbnail {
+  margin-bottom: 0px;
+}
+
+.information {
+  .item {
+    h5, h6 {
+      margin: 5px;
+    }
+  }
+}
+
+a.btn-full {
+  width: 100%;
+  margin-top: 5px;
+}
+
+.btn-love {
+  color: @white;
+  background-color: @base;
+  border-color: @base-darker;
+}
+
+.btn-love:hover {
+  color: @white;
+  background-color: @base-darker;
+}
+
+.btn-modify {
+  text-decoration: none;
+  color: @base;
+  background: transparent;
+  border-radius: 5px;
+  border: 1px solid @base-darker;
+  padding: 3px 5px;
+}
+
+.btn-modify:hover {
+  text-decoration: none;
+  background: @base;
+  border-color: @base-darker;
+  color: @white;
+}
+
 .drop-box {
-  background: #F8F8F8;
+  background: #f9f9f9;
   border: 5px dashed #DDD;
   padding: 50px 50px;
   margin: 10px;
   cursor: pointer;
 }
 
+.msg_receive{
+  padding-left:0;
+  margin-left:0;
+}
+.messages {
+  background: #f3f3f3;
+  padding: 10px;
+  border-radius: 2px;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+.messages > p {
+  font-size: 13px;
+  margin: 0 0 0.2rem 0;
+}
+
 .dragover {
-  border: 5px dashed blue;
+  border: 5px dashed @base;
 }
 
 .side-menu {
@@ -74,10 +151,13 @@ a.btn-modify {
   }
 
   .item a {
-    color: #aaa;
-    font-weight: 500;
+    color: #666;
+    /* font-weight: 500; */
     text-transform: capitalize;
     text-decoration: none;
+    &:hover {
+      color: @base-darker;
+    }
 
     .fa {
       width: 12px;

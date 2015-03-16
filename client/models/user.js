@@ -7,7 +7,15 @@ angular.module('dating-app')
       return $http.get('/users');
     }
 
+    function getUser(userId) {
+      return $http.get(`/users/${userId}`);
+    }
+
     function register(userId,user) {
+      return $http.post(`/users/${userId}`, user);
+    }
+
+    function update(userId, user) {
       return $http.post(`/users/${userId}`, user);
     }
 
@@ -28,5 +36,9 @@ angular.module('dating-app')
       }
     }
 
-    return {findUsers:findUsers, register:register, upload:upload};
+    function show(userId) {
+      return $http.get('/users/' + userId);
+    }
+
+    return {findAll:findAll, getUser:getUser, update:update, show:show, register:register, upload:upload};
   }]);

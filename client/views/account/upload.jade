@@ -1,0 +1,4 @@
+.drop-box(ng-file-drop, ng-file-select, ng-model='photos', drag-over-class='dragover', ng-multiple='true', allow-dir='true', accept='image/*')
+  div(ng-if='!photos') Drop Images here
+  div(ng-if='photos', ng-repeat='photo in photos', style='font:smaller') {{photo.name}}
+button.btn.btn-love(ng-click='uploadPictures(photos)') Upload
