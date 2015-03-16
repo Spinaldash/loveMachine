@@ -13,7 +13,7 @@ let itemSchema = mongoose.Schema({
 
 itemSchema.methods.purchase = function(token, cb){
   stripe.charges.create({
-    amount: this.price,
+    amount: Math.ceil(this.price * 100),
     currency: 'usd',
     source: token,
     description: this.name

@@ -6,16 +6,10 @@
 
 .col-md-12
   .col-md-4
-    .col-md-12.page-header
+    .col-md-12
       .thumbnail
         .profile-picture
           img(ng-src='{{user.photos[0]}}')
-    .location(ng-if='user.location')
-      .col-md-1.text-center: i.fa.fa-map-marker
-      .col-md-10 {{user.location}}
-    .height(ng-if='user.height')
-      .col-md-1.text-right: i.fa.fa-ruler
-      .col-md-10 {{user.height}}
 
   .col-md-8
     .col-md-12

@@ -6,6 +6,7 @@ var mailgun = require('../../models/mailgun');
 
 module.exports = {
   handler: function(request, reply){
+    console.log(request.payload.token);
     Item.findById(request.params.itemId, (err, item) => {
       item.purchase(request.payload.token, function(err, charge) {
         if(err) {

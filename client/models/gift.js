@@ -7,5 +7,13 @@ angular.module('dating-app')
       return $http.get(`/users/${userId}/gifts`);
     }
 
-    return {userGifts:userGifts};
+    function getItems() {
+      return $http.get(`/items`);
+    }
+
+    function purchaseGift(giftId, item) {
+      return $http.post(`/items/${giftId}/purchase`, item);
+    }
+
+    return {userGifts:userGifts, getItems:getItems, purchaseGift:purchaseGift};
   }]);
