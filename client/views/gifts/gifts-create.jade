@@ -1,0 +1,19 @@
+.container(ng-controller="GiftsCreateCtrl")
+  .row
+    .col-md-6
+      .jumbotron
+        form(name='giftForm')
+          .page-header.text-center: h3 Create Gift
+          .form-group
+            label Gift Name:
+            input.form-control.username-input(type='text', ng-model='item.name', placeholder='Enter a gift name', autofocus, required, ng-minlength='2', ng-maxlength='18')
+          .form-group
+            label Gift Image:
+            input.form-control.username-input(type='text', ng-model='item.photo', placeholder='Enter a gift image url', required)           
+          .form-group
+            label Gift Price:
+            .input-group
+              .input-group-addon $
+              input.form-control.username-input(type='number', step=".01" ng-model='item.price', placeholder='.99', required) 
+          .form-group.text-center
+            button.btn.btn-success(ng-click='create(item)', ng-disabled='giftForm.$invalid') Create Gift

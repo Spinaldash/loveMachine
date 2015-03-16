@@ -15,5 +15,9 @@ angular.module('dating-app')
       return $http.post(`/items/${giftId}/purchase`, item);
     }
 
-    return {userGifts:userGifts, getItems:getItems, purchaseGift:purchaseGift};
+    function create(item) {
+      return $http.post(`/items/new`, item);
+    }
+
+    return {userGifts:userGifts, getItems:getItems, purchaseGift:purchaseGift, create:create};
   }]);

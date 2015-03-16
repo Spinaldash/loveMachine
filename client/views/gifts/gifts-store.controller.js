@@ -13,5 +13,4 @@ angular.module('dating-app')
     .then(response => {
       $scope.gifts = response.data.items;
     });
-
   }]);

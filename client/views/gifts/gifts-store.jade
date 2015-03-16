@@ -1,10 +1,17 @@
 div(pp-stripe-brain)
-.col-md-3.text-center(ng-repeat='gift in gifts', style='padding-top: 25px;')
+.col-md-3.text-center.store-gift(ng-repeat='gift in gifts')
   .col-md-12
-    img(ng-src='http://placehold.it/125x125')
+    img.img-style(ng-src='{{gift.photo}}')
   .col-md-12
     h5.text-capitalize: strong {{gift.name}}
     select.form-control(ng-model='receiver')
       option(value='') Select Receiver
       option(ng-repeat='receiver in users', value='{{receiver}}') {{receiver.username}}
     div(pp-stripe, gift='gift', receiver='receiver')
+.col-md-3.text-center.store-gift
+  .thumbnail
+    .col-md-12
+      img.img-style(ng-src='media/images/store/plus.png')
+    .col-md-12
+      h5.text-capitalize: strong Create New Item
+    a.btn.btn-love.btn-full(ui-sref='gifts.create'): i.fa.fa-plus &nbsp; 
