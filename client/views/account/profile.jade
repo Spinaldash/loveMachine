@@ -6,9 +6,10 @@
 
 .col-md-12
   .col-md-4
-    .col-md-12
-      .profile-picture
-        img(ng-src='{{user.photos[0]}}')
+    .col-md-12.page-header
+      .thumbnail
+        .profile-picture
+          img(ng-src='{{user.photos[0]}}')
     .location(ng-if='user.location')
       .col-md-1.text-center: i.fa.fa-map-marker
       .col-md-10 {{user.location}}

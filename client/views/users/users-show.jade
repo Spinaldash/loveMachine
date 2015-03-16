@@ -30,7 +30,8 @@
   .col-md-4
     .col-md-12
       .profile-picture.page-header
-        img(ng-src='{{showUser.photos[0]}}')
+        .thumbnail
+          img(ng-src='{{showUser.photos[0]}}')
     .location(ng-if='showUser.location')
       .col-md-1.text-center: i.fa.fa-map-marker
       .col-md-10 {{showUser.location}}
@@ -48,4 +49,4 @@
     .col-md-12.page-header: h4 Gifts
     .col-md-12(ng-if='!gifts')
       h6 {{showUser.username}} does not have gifts! &nbsp;
-        a(href='#') Send a Gift!
+        a(ui-sref='gifts.store') Send a Gift!

@@ -2,7 +2,7 @@
   .col-md-12
     .col-md-4(style='padding-left: 0px')
       .image
-        img(ng-src='{{user.photos[0]}}', height='50', widht='50')
+        img(ng-src='{{user.photos[0]}}', height='50', widht='50', style='border-radius: 5px;')
     .col-md-8(style='padding-left: 0px')
       h6(style='font-weight: bolder; font-size: 1.5rem; color: #999; margin-top: 2px;') {{user.realname}}
       h6.text-capitalize.item: a(ui-sref='account.profile') my account
