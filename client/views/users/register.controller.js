@@ -4,8 +4,7 @@ angular.module('dating-app')
   .controller('RegisterCtrl', ['$rootScope', '$scope', '$window', '$state', '$auth', 'User', function($rootScope, $scope, $window, $state, $auth, User){
 
     $scope.newUser ={};
-    $scope.newUser.lookingFor = {Male: false, Female: false, Other: false};
-
+    $scope.newUser.lookingFor = {male: false, female: false, other: false};
 
     $scope.finish = function(user) {
       User.register($rootScope.user._id, user)

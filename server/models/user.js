@@ -25,7 +25,11 @@ let userSchema = mongoose.Schema({
   age: Number,
   height: String,
   gender: String,
-  lookingFor: String,
+  lookingFor: {
+    male: Boolean,
+    female: Boolean,
+    other: Boolean
+  },
   photos: [String],
   createdAt: {type: Date, default: Date.now, required: true}
 });

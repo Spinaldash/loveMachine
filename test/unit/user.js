@@ -48,11 +48,11 @@ describe('User Model', function() {
       });
     });
     it('should return the user object if it already exists', function(done) {
-      var profileObject = {facebookId: 123, username:'existinguser'};
+      var profileObject = {facebookId: 123, username:'Mister'};
       User.create(profileObject, function(err, user) {
         expect(err).to.not.be.ok;
         expect(user._id).to.be.ok;
-        expect(user.username).to.equal('existinguser');
+        expect(user.username).to.equal('Mister');
         expect(user.facebookId).to.equal('123');
         done();
       });

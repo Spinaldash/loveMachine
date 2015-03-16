@@ -2,14 +2,27 @@
   {
     "_id" : {"$oid":"000000000000000000000001"},
     "facebookId" : "123",
-    "username" : "existinguser",
+    "username" : "Mister",
     "photos" : ["test.jpg"],
+    "gender" : "male",
+    "lookingFor" : {
+      "male" : false,
+      "female" : true,
+      "other" : false
+      },
     "createdAt" : {"$date":1421111111111}
   },
   {
     "_id" : {"$oid":"000000000000000000000002"},
     "facebookId" : "321",
-    "username" : "existinguser2",
+    "username" : "Miss",
+    "photos" : ["test2.jpg"],
+    "gender" : "female",
+    "lookingFor" : {
+      "male" : true,
+      "female" : false,
+      "other" : false
+      },
     "createdAt" : {"$date":1424828111020}
   }
 ]
