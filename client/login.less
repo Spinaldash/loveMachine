@@ -3,6 +3,10 @@ body {
   background-size: cover;
 }
 
+span.margin-r {
+  margin-right: 5px !important;
+}
+
 .jumbotron {
   margin-top: 15%;
   background-color: rgba(238, 238, 238, 0.85);
@@ -53,4 +57,23 @@ body {
   font-size: 12px;
   line-height: 1.428571429;
   border-radius: 15px;
+}
+
+.blue {
+  color: #36b2ca;
+}
+
+.pink {
+  color: #ff0077;
+}
+
+.purple {
+  color: #6310e9;
+}
+.username-input, .location-input, .bio-input, .email-input, .pre-blue {
+  transition:0.5s linear all;
+
+}
+.username-input.ng-invalid.ng-dirty, .location-input.ng-invalid.ng-dirty, .bio-input.ng-invalid.ng-dirty, .email-input.ng-invalid.ng-dirty {
+  border: solid thin red;
 }

@@ -1,4 +1,4 @@
-.container
+.container(ng-controller="RegisterCtrl")
   .row
     .col-md-3
     .col-md-6
@@ -10,31 +10,33 @@
                 button.btn.btn-default.btn-circle(type='button') 1
               .stepwizard-step
                 button.btn.btn-primary.btn-circle(type='button') 2
-        .page-header.text-center: h3 Create Profile
-        .form-group
-          input.form-control(type='text', ng-model='newUser.username', placeholder='Enter a username', autofocus, required)
-        .form-group
-          input.form-control(type='email', ng-model='newUser.email', placeholder='Enter an Email', required)
-        .form-group
-          textarea.form-control(type='text', rows='4', ng-model='newUser.bio', placeholder='You in a nutshell', required)
-        .form-group
-          input.form-control(type='text', ng-model='newUser.location', placeholder='Enter your zipcode', required)
-        .form-group 
-          input.form-control(type='number', ng-model='newUser.age', placeholder='Enter your age', required)
-        .form-group
-          select.form-control(ng-model='newUser.gender', required)
-            option(value='') I am
-            option Male
-            option Female
-            option Other
-        .form-group
-          select.form-control(ng-model='newUser.lookingFor', required)
-            option(value='') Looking For
-            option Male
-            option Female
-            option Other
-        .form-group
-          button.btn.btn-info(ng-click='finish(newUser)') Complete Registration
+        form(name='regiForm')
+            .page-header.text-center: h3 Create Profile
+            .form-group
+              input.form-control.username-input(type='text', ng-model='newUser.username', placeholder='Enter a username', autofocus, required, ng-minlength='3', ng-maxlength='18')
+            .form-group
+              input.form-control.email-input(type='email', ng-model='newUser.email', placeholder='Enter an Email', required, ng-minlength='3', ng-maxlength='30')
+            .form-group
+              textarea.form-control.bio-input(type='text', rows='4', ng-model='newUser.bio', placeholder='You in a nutshell', required, ng-minlength='3')
+            .form-group
+              input.form-control.location-input(type='text', ng-model='newUser.location', placeholder='Enter your zipcode', required, ng-minlength='5', ng-maxlength='5')
+            .form-group 
+              input.form-control(type='number', ng-model='newUser.age', placeholder='Enter your age', required)
+            .form-group
+              select.form-control(ng-model='newUser.gender', required)
+                option(value='') I am
+                option Male
+                option Female
+                option Other
+            .form-group.text-center
+              h4 Looking For:
+              span.margin-r(ng-repeat='(preference,enabled) in newUser.lookingFor') &nbsp; {{preference}} &nbsp; 
+                i.fa.fa-mars.pre-blue(ng-show="$index === 0", ng-class='{pink:newUser.lookingFor[preference]}')
+                i.fa.fa-venus.pre-blue(ng-show="$index === 1", ng-class='{blue:newUser.lookingFor[preference]}')
+                i.fa.fa-transgender.pre-blue(ng-show="$index === 2", ng-class='{purple:newUser.lookingFor[preference]}')
+                input(type='checkbox', ng-model="newUser.lookingFor[preference]") 
+            .form-group.text-center
+              button.btn.btn-info(ng-click='finish(newUser)', ng-disabled='regiForm.$invalid') Complete Registration
     .col-md-3
         //- username: String,
         //- email: String,
