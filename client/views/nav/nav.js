@@ -7,4 +7,5 @@ angular.module('dating-app')
       $window.localStorage.clear();
       $state.go('login');
     };
+
   }]);
