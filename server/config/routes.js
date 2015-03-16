@@ -12,6 +12,9 @@ module.exports = [
   {method: 'get', path: '/users/{userId}/gifts', config: require('../routes/gifts/usergifts')},
   {method: 'post', path: '/users/{userId}/upload', config: require('../routes/photos/upload')},
   {method: 'delete', path: '/users/{userId}/photo', config: require('../routes/photos/delete')},
+  {method: 'post', path: '/users/{userId}/wink', config: require('../routes/incidents/wink')},
+
+  {method: 'get', path: '/incidents', config: require('../routes/incidents/index')},
 
   {method: 'get', path: '/items', config: require('../routes/items/index')},
   {method: 'post', path: '/items/new', config: require('../routes/items/create')},
@@ -19,7 +22,7 @@ module.exports = [
 
   {method: 'get', path: '/gifts', config: require('../routes/gifts/index')},
   {method: 'get', path: '/gifts/{giftId}', config: require('../routes/gifts/show')},
-  
+
   {method: 'post', path: '/messages/email', config: require('../routes/messages/email')},
   {method: 'post', path: '/messages/txt', config: require('../routes/messages/txt')}
 ];
