@@ -8,11 +8,15 @@ angular.module('dating-app')
       $state.go('login');
     };
 
-    $scope.search = function(input){
-      console.log('the search bar was clicked and the topnav.js controller was called!');
+    $scope.search = function(search){
       Nav.search()
       .then(function(response){
-        console.log(response);
+        console.log(response.data.users);
+        $state.go('search');
+        console.log('the search is', search);
+        $rootScope.search = search;
+        console.log('response.data.users', response.data.users)
+        $rootScope.searchItems = response.data.users;
       })
     };
   }]);

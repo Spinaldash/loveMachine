@@ -1,4 +1,26 @@
 .col-md-12(style='padding-top: 25px;')
+  .row
+    form(form='filterForm')
+      .col-sm-12.col-md-3
+        .form-group
+          select.form-control(ng-model='filterUser.gender')
+            option(value='') Gender
+            option Male
+            option Female
+            option Other
+      .col-sm-12.col-md-3
+        .form-group
+          select.form-control(ng-model='filterUser.age')
+            option(value='') Age
+            option > 25
+            option < 25
+      .col-sm-12.col-md-3
+        .form-group
+          input.form-control.location-input(type='text', ng-model='filterUser.location', placeholder='Search zip', ng-minlength='5', ng-maxlength='5')
+      .col-sm-12.col-md-3
+        .input-group-btn
+              button.btn.btn-default(type='button', ng-click='filter(filterUser)'): i.fa.fa-filter
+      
   .col-md-3(ng-repeat='user in users') 
     .thumbnail
       .outer-image.thumbnail
