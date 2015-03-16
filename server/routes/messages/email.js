@@ -1,6 +1,7 @@
 'use strict';
 
 let mailgun = require('../../models/mailgun');
+let Incident = require('../../models/incident');
 
 module.exports = {
   handler: function(request, reply) {
@@ -8,7 +9,14 @@ module.exports = {
       if(err) {
         reply(err).code(400);
       }else{
-        reply();
+        let incident = new Incident({
+          type: 'email',
+          sender: request.payload.senderId,
+          receiver: request.payload.receiverId
+        });
+        incident.save(function() {
+          reply();
+        });
       }
     });
   }
