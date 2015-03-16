@@ -4,11 +4,11 @@
     "facebookId" : "123",
     "username" : "Mister",
     "photos" : ["test.jpg"],
-    "gender" : "male",
+    "gender" : "Male",
     "lookingFor" : {
-      "male" : false,
-      "female" : true,
-      "other" : false
+      "Male" : false,
+      "Female" : true,
+      "Other" : false
       },
     "createdAt" : {"$date":1421111111111}
   },
@@ -17,11 +17,11 @@
     "facebookId" : "321",
     "username" : "Miss",
     "photos" : ["test2.jpg"],
-    "gender" : "female",
+    "gender" : "Female",
     "lookingFor" : {
-      "male" : true,
-      "female" : false,
-      "other" : false
+      "Male" : true,
+      "Female" : false,
+      "Other" : false
       },
     "createdAt" : {"$date":1424828111020}
   }
