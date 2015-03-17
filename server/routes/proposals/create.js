@@ -21,8 +21,8 @@ module.exports = {
      });
      let incident = new Incident({
        type: 'proposal',
-       sender: request.payload.senderId,
-       receiver: request.payload.receiverId
+       sender: request.auth.credentials._id,
+       receiver: request.params.userId
      });
      incident.save(function() {
        proposal.save(function() {
