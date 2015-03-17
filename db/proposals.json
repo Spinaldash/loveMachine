@@ -6,7 +6,7 @@
     "title" : "Dinner Date",
     "description" : "Let's go to McDonalds!",
     "isPending" : true,
-    "isAccepted" : null,
+    "isAccepted" : true,
     "createdAt" : {"$date":1421111111111}
   },
   {

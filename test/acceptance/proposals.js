@@ -164,7 +164,7 @@ describe('Incidents', function() {
     it('should list pending proposals', function(done) {
       var options = {
         method: 'get',
-        url: '/proposals/isPending',
+        url: '/proposals/pending',
         headers: {
           Authorization: 'Bearer ' + token
         }
@@ -178,7 +178,7 @@ describe('Incidents', function() {
     it('should NOT list pending proposals, -bad Token', function(done) {
       var options = {
         method: 'get',
-        url: '/proposals/isPending',
+        url: '/proposals/pending',
         headers: {
           Authorization: 'BeErer ' + token
         }
@@ -193,7 +193,7 @@ describe('Incidents', function() {
     it('should list accepted proposals', function(done) {
       var options = {
         method: 'get',
-        url: '/proposals/isAccepted',
+        url: '/proposals/accepted',
         headers: {
           Authorization: 'Bearer ' + token
         }
@@ -207,7 +207,7 @@ describe('Incidents', function() {
     it('should NOT list accepted proposals, -bad Token', function(done) {
       var options = {
         method: 'get',
-        url: '/proposals/isPending',
+        url: '/proposals/accepted',
         headers: {
           Authorization: 'BeErer ' + token
         }
