@@ -3,7 +3,7 @@ container-fluid
     .col-md-12
       .table-responsive
         table.table.table-striped.table-style
-          .lead Pending Proposals to Me
+          .lead My Pending Proposals
           thead
             tr
               th #
@@ -13,7 +13,7 @@ container-fluid
               th Created
               th Options     
           tbody
-            tr(ng-repeat='proposal in proposals | filter: proposal1filter' )
+            tr(ng-repeat='proposal in pendingProposals | filter: proposal1filter' )
               th {{$index}}
               td
                 a(ui-sref='users.show({userId:proposal.sender._id})') {{proposal.sender.username}}
@@ -26,16 +26,43 @@ container-fluid
               td(ng-if='proposal.isPending')
                 span.btn.btn-danger(ng-click='declineProposal(proposal._id)') Decline
                 span.btn.btn-success(ng-click='acceptProposal(proposal._id)') Accept
-                
-
-                //- title: {type: String, required: true},
-                //- description: {type: String, required: true},
-                //- sender: {type: mongoose.Schema.ObjectId, ref: 'User', required: true},
-                //- receiver: {type: mongoose.Schema.ObjectId, ref: 'User', required: true},
-                //- isPending: {type: Boolean, default: true, required: true},
-                //- isAccepted: Boolean,
-                //- createdAt: {type: Date, default: Date.now, required: true}
-
-            tr(ng-repeat='trade in trades | filter : item1filter')
+  .row
+    .col-md-12
+      .table-responsive
+        table.table.table-striped.table-style
+          .lead My Winks
+          thead
+            tr
+              th #
+              th Sender
+              th Created    
+          tbody
+            tr(ng-repeat='incident in incidents | filter:{type:"wink"}' )
               th {{$index}}
+              td
+                a(ui-sref='users.show({userId:incident.sender._id})') {{incident.sender.username}}
+              td.smallDissapear  
+                span(am-time-ago='incident.createdAt')
+  .row
+    .col-md-12
+      .table-responsive
+        table.table.table-striped.table-style
+          .lead My Accepted Proposals
+          thead
+            tr
+              th #
+              th Sender
+              th Title
+              th Description
+              th Proposed Date
+          tbody
+            tr(ng-repeat='proposal in acceptedProposals | filter: proposal1filter' )
+              th {{$index}}
+              td
+                a(ui-sref='users.show({userId:proposal.sender._id})') {{proposal.sender.username}}
               td 
+                span {{proposal.title}}
+              td 
+                span {{proposal.description}}
+              td.smallDissapear  
+                span {{proposal.proposedDate}}
