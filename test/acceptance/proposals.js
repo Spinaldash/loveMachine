@@ -15,6 +15,7 @@ var cp = require('child_process');
 var dbname = process.env.MONGO_URL.split('/')[3];
 var User = require('../../server/models/user');
 var Proposal = require('../../server/models/proposal');
+var Incident = require('../../server/models/incident');
 var token;
 
 describe('Incidents', function() {
@@ -41,10 +42,12 @@ describe('Incidents', function() {
       };
       server.inject(options, function(response) {
         Proposal.findOne({title: 'Monster Truck Rally'}, function(err, proposal) {
-          expect(response.statusCode).to.equal(200);
-          expect(proposal.sender.toString()).to.equal('000000000000000000000001');
-          expect(proposal.receiver.toString()).to.equal('000000000000000000000002');
-          done();
+          Incident.find({}, function(err, incidents) {
+            expect(response.statusCode).to.equal(200);
+            expect(proposal.sender.toString()).to.equal('000000000000000000000001');
+            expect(proposal.receiver.toString()).to.equal('000000000000000000000002');
+            done();
+          });
         });
       });
     });
