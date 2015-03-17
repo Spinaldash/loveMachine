@@ -1,14 +1,21 @@
-form(style='margin-top: 50px;')
+form(style='margin-top: 50px;' name='updateForm')
 .form-group
+  label Full Name
   input.form-control(type='text', ng-model='user.realname', placeholder='Real Name')
 .form-group
+  label Email
   input.form-control(type='email', ng-model='user.email', placeholder='Email')
 .form-group
+  label Zipcode
   input.form-control(type='text', ng-model='user.location', placeholder='Location')
 .form-group
+  label Mobile
+  input.form-control(type='tel', ng-model='user.phone', placeholder='Mobile')
+.form-group
+  label Bio
   textarea.form-control(ng-model='user.bio', rows='4', placeholder='Bio')
 .form-group
-  submit.btn.btn-love(ng-click='submit(user)') Update
+  button.btn.btn-love(ng-click='submit(user)', ng-disabled='updateForm.$invalid') Update
 
 //- facebookId: {type: String, required: true},
 //- username: String,

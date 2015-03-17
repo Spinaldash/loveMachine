@@ -1,28 +1,17 @@
 .container(ng-controller="HomeCtrl")
 .col-md-12(style='padding-top: 25px;')
   .row
-    form(form='filterForm')
-      .col-sm-12.col-md-3
+    form.home-filter(form='filterForm')
+      .col-sm-12.col-md-2
         .form-group
-          select.form-control(ng-model='filterUser.gender')
-            option(value='') Gender
-            option Male
-            option Female
-            option Other
-      .col-sm-12.col-md-3
+          label Age (less than)
+          input.form-control.location-input(type='number', ng-model='filterUser.age', placeholder='Greater than',)
+      .col-sm-12.col-md-2
         .form-group
-          select.form-control(ng-model='filterUser.age')
-            option(value='') Age
-            option(value='25') Less Than 25
-            option(value='30') Less Than 30
-      .col-sm-12.col-md-3
-        .form-group
-          input.form-control.location-input(type='text', ng-model='filterUser.location', placeholder='Search zip', ng-minlength='5', ng-maxlength='5')
-      .col-sm-12.col-md-3
-        .input-group-btn
-            button.btn.btn-default(type='button', ng-click='filter(filterUser)'): i.fa.fa-filter
+          label Zipcode
+          input.form-control.location-input(type='text', ng-model='filterUser.location', ng-minlength='5', ng-maxlength='5')
       
-  .col-md-3(ng-repeat='user in users | filter:{gender: filterUser.gender}:true') 
+  .col-md-3(ng-repeat='user in users | filter:{location: filterUser.location}:true | filter:ageFilter') 
     .thumbnail
       .outer-image.thumbnail
         img.img-responsive(ng-src='{{user.photos[0]}}', width='175', height='175')
