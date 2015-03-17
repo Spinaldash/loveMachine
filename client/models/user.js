@@ -37,6 +37,10 @@ angular.module('dating-app')
       return $http.post(`/messages/email`, body);
     }
 
+    function sms(body) {
+      return $http.post(`/messages/txt`, body);
+    }
+
     function markPrimary(index) {
       return $http.post(`/photos/${index}/markprimary`);
     }
@@ -62,6 +66,6 @@ angular.module('dating-app')
       return $http.get('/users/' + userId);
     }
 
-    return {findAll:findAll, getUser:getUser, update:update, show:show, register:register, upload:upload, getIncidents:getIncidents, getProposals:getProposals, wink:wink, message:message, markPrimary:markPrimary};
+    return {findAll:findAll, getUser:getUser, update:update, show:show, register:register, upload:upload, getIncidents:getIncidents, getProposals:getProposals, wink:wink, message:message, markPrimary:markPrimary, sms:sms};
 
   }]);
