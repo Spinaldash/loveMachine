@@ -11,10 +11,10 @@
 //-           label Zipcode
 //-           input.form-control.location-input(type='text', ng-model='filterUser.location', ng-minlength='5', ng-maxlength='5')
 
-.col-md-3(ng-repeat='user in users') 
+.col-md-3(ng-repeat='user in users', style='padding-top: 25px;') 
   .thumbnail
     .outer-image.thumbnail
-      a.btn.btn-default.btn-full.btn-sm(ui-sref='users.show({userId:user._id})'): img.img-responsive(ng-src='{{user.photos[0]}}', width='175', height='175')
+      a(ui-sref='users.show({userId:user._id})'): img.img-responsive(ng-src='{{user.photos[user.index]}}', width='175', height='175')
     .caption
       .row.information
         .col-md-12.item
