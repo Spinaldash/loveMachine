@@ -1,68 +1,62 @@
-container-fluid
-  .row
-    .col-md-12
-      .table-responsive
-        table.table.table-striped.table-style
-          .lead My Pending Proposals
-          thead
-            tr
-              th #
-              th Sender
-              th Title
-              th Description
-              th Created
-              th Options     
-          tbody
-            tr(ng-repeat='proposal in pendingProposals | filter: proposal1filter' )
-              th {{$index}}
-              td
-                a(ui-sref='users.show({userId:proposal.sender._id})') {{proposal.sender.username}}
-              td 
-                span {{proposal.title}}
-              td 
-                span {{proposal.description}}
-              td.smallDissapear  
-                span(am-time-ago='proposal.createdAt')
-              td(ng-if='proposal.isPending')
-                span.btn.btn-danger(ng-click='declineProposal(proposal._id)') Decline
-                span.btn.btn-success(ng-click='acceptProposal(proposal._id)') Accept
-  .row
-    .col-md-12
-      .table-responsive
-        table.table.table-striped.table-style
-          .lead My Winks
-          thead
-            tr
-              th #
-              th Sender
-              th Created    
-          tbody
-            tr(ng-repeat='incident in incidents | filter:{type:"wink"} | filter: incident1filter' )
-              th {{$index}}
-              td
-                a(ui-sref='users.show({userId:incident.sender._id})') {{incident.sender.username}}
-              td.smallDissapear  
-                span(am-time-ago='incident.createdAt')
-  .row
-    .col-md-12
-      .table-responsive
-        table.table.table-striped.table-style
-          .lead My Accepted Proposals
-          thead
-            tr
-              th #
-              th Sender
-              th Title
-              th Description
-              th Proposed Date
-          tbody
-            tr(ng-repeat='proposal in acceptedProposals | filter: proposal1filter' )
-              th {{$index}}
-              td
-                a(ui-sref='users.show({userId:proposal.sender._id})') {{proposal.sender.username}}
-              td 
-                span {{proposal.title}}
-              td 
-                span {{proposal.description}}
-              td.smallDissapear  
-                span {{proposal.proposedDate}}
+.col-md-12.body-padding
+  .page-header
+    h3 Notifications
+  .wink(ng-repeat='incident in incidents | filter:{type:"wink"} | filter: incident1filter' )
+    .row 
+      .col-md-1: img(ng-src='{{incident.sender.photos[incident.sender.primary]}}', width='40', height='40')
+      .col-md-8
+        h5
+          a(ui-sref='users.show({userId:incident.sender._id})') {{incident.sender.username}} sent you a {{incident.type}}
+      .col-md-3.text-right: h5(am-time-ago='incident.createdAt')
+
+.col-md-12.body-padding
+  .page-header
+    h3 My Pending Proposals
+  .table-responsive
+    table.table.table-striped.table-style
+      thead
+        tr
+          th #
+          th Sender
+          th Title
+          th Description
+          th Created
+          th Options     
+      tbody
+        tr(ng-repeat='proposal in pendingProposals | filter: proposal1filter' )
+          th {{$index}}
+          td
+            a(ui-sref='users.show({userId:proposal.sender._id})') {{proposal.sender.username}}
+          td 
+            span {{proposal.title}}
+          td 
+            span {{proposal.description}}
+          td.smallDissapear  
+            span(am-time-ago='proposal.createdAt')
+          td(ng-if='proposal.isPending')
+            span.btn.btn-danger(ng-click='declineProposal(proposal._id)') Decline
+            span.btn.btn-success(ng-click='acceptProposal(proposal._id)') Accept
+    
+.col-md-12.body-padding
+  .page-header
+    h3 My Accepted Proposals
+  .table-responsive
+    table.table.table-striped.table-style
+      thead
+        tr
+          th #
+          th Sender
+          th Title
+          th Description
+          th Proposed Date
+      tbody
+        tr(ng-repeat='proposal in acceptedProposals | filter: proposal1filter' )
+          th {{$index}}
+          td
+            a(ui-sref='users.show({userId:proposal.sender._id})') {{proposal.sender.username}}
+          td 
+            span {{proposal.title}}
+          td 
+            span {{proposal.description}}
+          td.smallDissapear  
+            span {{proposal.proposedDate}}
