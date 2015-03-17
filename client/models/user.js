@@ -1,3 +1,5 @@
+/* jshint loopfunc:true, camelcase:false */
+
 'use strict';
 
 angular.module('dating-app')
@@ -27,10 +29,6 @@ angular.module('dating-app')
       return $http.post(`/users/${userId}`, user);
     }
 
-    function filterUsers(filters) {
-      return $http.get('/users');
-    }
-
     function wink(userId) {
       return $http.post(`/users/${userId}/wink`);
     }
@@ -47,7 +45,7 @@ angular.module('dating-app')
           url: '/users/' + userId + '/upload',
           method: 'POST',
           file: file
-        }).success(function(data, status, headers, config){
+        }).success(function(){
           count++;
           $rootScope.$broadcast('upload', count);
         }).error(function(){
@@ -60,6 +58,6 @@ angular.module('dating-app')
       return $http.get('/users/' + userId);
     }
 
-    return {findAll:findAll, getUser:getUser, update:update, show:show, register:register, upload:upload, filterUsers:filterUsers, getIncidents:getIncidents, getProposals:getProposals, wink:wink, message:message};
+    return {findAll:findAll, getUser:getUser, update:update, show:show, register:register, upload:upload, getIncidents:getIncidents, getProposals:getProposals, wink:wink, message:message};
 
   }]);
