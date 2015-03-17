@@ -9,7 +9,7 @@
         .thumbnail
           img(ng-src='{{showUser.photos[0]}}')
     .col-md-12
-      a.btn.btn-danger.btn-full: i.fa.fa-heart &nbsp; Send Wink
+      a.btn.btn-danger.btn-full(ng-click='wink(showUser._id)'): i.fa.fa-heart &nbsp; Send Wink
     .col-md-12
       a.btn.btn-love.btn-full: i.fa.fa-comment &nbsp; Send Message
     .col-md-12

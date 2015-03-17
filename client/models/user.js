@@ -8,7 +8,7 @@ angular.module('dating-app')
     }
 
     function getIncidents(userId) {
-      return $http.get('/')
+      return $http.get('/');
     }
 
     function getUser(userId) {
@@ -25,6 +25,10 @@ angular.module('dating-app')
 
     function filterUsers(filters) {
       return $http.get('/users');
+    }
+
+    function wink(userId) {
+      return $http.post(`/users/${userId}/wink`);
     }
 
     function upload(userId, photos){
@@ -48,6 +52,6 @@ angular.module('dating-app')
       return $http.get('/users/' + userId);
     }
 
-    return {findAll:findAll, getUser:getUser, update:update, show:show, register:register, upload:upload, filterUsers:filterUsers, getIncidents:getIncidents};
+    return {findAll:findAll, getUser:getUser, update:update, show:show, register:register, upload:upload, filterUsers:filterUsers, getIncidents:getIncidents, wink:wink};
 
   }]);

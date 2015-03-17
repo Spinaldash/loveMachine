@@ -9,20 +9,20 @@ html(lang='en', ng-app='dating-app')
     link(rel='stylesheet', href='/vendor/bootstrap/dist/css/bootstrap.min.css')
     link(rel='stylesheet', href='/vendor/font-awesome/css/font-awesome.min.css')
     link(href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,600,300,800', rel='stylesheet', type='text/css')
-    link(ng-if='!user.gender', rel='stylesheet', href='/login.css')
-    link(ng-if='user.gender', rel='stylesheet', href='/index.css')
+    link(ng-if='!user.bio', rel='stylesheet', href='/login.css')
+    link(ng-if='user.bio', rel='stylesheet', href='/index.css')
     link(rel='shortcut icon', href='/favicon.ico')
 
   body.ng-cloak(ng-cloak)
     .container-fluid
-      div(ng-if='user.gender')
+      div(ng-if='user.bio')
         include ./views/nav/topnav
     .container
       .row
-        .col-md-3(ng-if='user.gender')
+        .col-md-3(ng-if='user.bio')
           include ./views/nav/nav
         .col-md-9
-          div(ui-view)
+          div.ui-view
 
     script(src='/vendor/jquery/dist/jquery.js')
     script(src='/vendor/angular-messages/angular-messages.js')

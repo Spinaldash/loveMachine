@@ -9,7 +9,7 @@ angular.module('dating-app')
     .then(response => {
       $scope.messages = response.data.messages;
       console.log($scope.messages);
-    })
+    });
 
     $scope.logout = function(){
       delete $rootScope.user;
