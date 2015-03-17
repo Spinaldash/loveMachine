@@ -3,7 +3,7 @@ container-fluid
     .col-md-12
       .table-responsive
         table.table.table-striped.table-style
-          .lead Offers to Me
+          .lead Pending Proposals to Me
           thead
             tr
               th #
@@ -23,9 +23,9 @@ container-fluid
                 span {{proposal.description}}
               td.smallDissapear  
                 span(am-time-ago='proposal.createdAt')
-              td 
-                span.btn.btn-danger(ng-click='declineProposal()') Decline
-                span.btn.btn-success(ng-click='approveProposal()') Accept
+              td(ng-if='proposal.isPending')
+                span.btn.btn-danger(ng-click='declineProposal(proposal._id)') Decline
+                span.btn.btn-success(ng-click='acceptProposal(proposal._id)') Accept
                 
 
                 //- title: {type: String, required: true},
