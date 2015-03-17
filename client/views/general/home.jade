@@ -38,4 +38,4 @@
           .col-md-12
             a.btn.btn-default.btn-full.btn-sm(ui-sref='users.show({userId:user._id})'): i.fa.fa-info &nbsp; More Information
           .col-md-12
-            a.btn.btn-love.btn-full.btn-sm: i.fa.fa-comments-o &nbsp; Send Message
+            a.btn.btn-danger.btn-full.btn-sm(ng-click='wink(user._id)'): i.fa.fa-heart &nbsp; Send Wink

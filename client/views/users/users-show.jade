@@ -11,11 +11,16 @@
     .col-md-12
       a.btn.btn-danger.btn-full(ng-click='wink(showUser._id)'): i.fa.fa-heart &nbsp; Send Wink
     .col-md-12
-      a.btn.btn-love.btn-full: i.fa.fa-comment &nbsp; Send Message
+      a.btn.btn-love.btn-full(ng-click='showMessage()'): i.fa.fa-comment &nbsp; Send Message
     .col-md-12
       a.btn.btn-primary.btn-full(ui-sref='dates.propose({userId:showUser._id})'): i.fa.fa-coffee &nbsp; Propose Date
 
   .col-md-8
+    .col-md-12(ng-if='message')
+      .form-group
+        textarea.form-control(ng-model='body', rows='4', placeholder='Message...')
+      .form-group
+        a.btn.btn-love.btn-full(ng-click='sendMessage(body, showUser._id)') Send Message
     .col-md-12
       .messages.msg_receiver: p {{showUser.bio}}
     .col-md-12.page-header: h4 Photos

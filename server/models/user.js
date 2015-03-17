@@ -25,6 +25,7 @@ let userSchema = mongoose.Schema({
   age: Number,
   height: String,
   gender: String,
+  admin: {type: Boolean, default: false},
   lookingFor: {
     Male: Boolean,
     Female: Boolean,

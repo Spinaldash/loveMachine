@@ -6,6 +6,17 @@ angular.module('dating-app')
 
     $scope.gifts = null;
 
+    $scope.sendMessage = function(body, userId) {
+      let payload = {
+        body: body,
+        receiverId: userId
+      };
+      User.message(payload)
+      .then(() => {
+        $rootScope.message = false;
+      });
+    };
+
     User.show($state.params.userId)
     .then(response => {
       $scope.showUser = response.data.user;
@@ -15,6 +26,10 @@ angular.module('dating-app')
     .then(response => {
       $scope.gifts = response.data.gifts;
     });
+
+    $scope.showMessage = function() {
+      $rootScope.message = !$rootScope.message;
+    };
 
     $scope.wink = function(userId) {
       User.wink(userId)

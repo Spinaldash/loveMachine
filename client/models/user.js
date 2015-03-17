@@ -31,6 +31,10 @@ angular.module('dating-app')
       return $http.post(`/users/${userId}/wink`);
     }
 
+    function message(body) {
+      return $http.post(`/messages/email`, body);
+    }
+
     function upload(userId, photos){
       var count = 0;
       for (var i = 0; i < photos.length; i++){
@@ -52,6 +56,6 @@ angular.module('dating-app')
       return $http.get('/users/' + userId);
     }
 
-    return {findAll:findAll, getUser:getUser, update:update, show:show, register:register, upload:upload, filterUsers:filterUsers, getIncidents:getIncidents, wink:wink};
+    return {findAll:findAll, getUser:getUser, update:update, show:show, register:register, upload:upload, filterUsers:filterUsers, getIncidents:getIncidents, wink:wink, message:message};
 
   }]);
