@@ -14,6 +14,8 @@ angular.module('dating-app', ['ui.router', 'ngSanitize','ngMessages', 'satellize
       .state('account.profile', {url: '', templateUrl: '/views/account/profile.html', controller:'AccountProfileCtrl'})
       .state('account.edit', {url: '/edit', templateUrl: '/views/account/edit.html', controller:'AccountEditCtrl'})
       .state('account.upload', {url: '/upload', templateUrl: '/views/account/upload.html', controller:'AccountUploadCtrl'})
+      .state('account.history', {url: '/history', templateUrl: '/views/account/history.html', controller: 'AccountHistoryCtrl'})
+
 
       .state('search', {url: '/search', templateUrl: '/views/search/search.html', controller:'SearchCtrl'})
 

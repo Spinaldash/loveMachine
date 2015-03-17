@@ -20,14 +20,20 @@
         a(href='#')
           span.fa.fa-history
           span history
+    .item
+      h5
+        a(ui-sref='history')
+          span.fa.fa-comment-o
+          span Notifications
         
     .header
       small.text-capitalize Communication
     .item
       h5
-        a(href='#')
+        a(ui-sref='account.history')
           span.fa.fa-envelope-o
-          span messages
+          span messages &nbsp;
+          span.badge 4
         
     .header
       small.text-capitalize Gifts
