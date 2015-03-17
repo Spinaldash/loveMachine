@@ -19,8 +19,10 @@ module.exports = {
 
     User.find(params, (err, users) => {
       if(err){reply().code(400);}
-      _.pull(users, request.auth.credentials._id);
 
+      users = _.reject(users, (user) =>{
+        return user.facebookId === request.auth.credentials.facebookId;
+      });
       reply({users:users});
     });
   }
