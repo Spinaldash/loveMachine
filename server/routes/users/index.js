@@ -1,6 +1,7 @@
 'use strict';
 
 let User = require('../../models/user');
+var _ = require('lodash');
 
 module.exports = {
   handler: function(request, reply){
@@ -19,7 +20,9 @@ module.exports = {
     User.find(params, (err, users) => {
       if(err){reply().code(400);}
       _.pull(users, request.auth.credentials._id);
+
       reply({users:users});
     });
   }
 };
+git 
