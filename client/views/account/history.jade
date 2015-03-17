@@ -13,10 +13,10 @@ container-fluid
               th Created
               th Options     
           tbody
-            tr(ng-repeat='proposal in proposals')
+            tr(ng-repeat='proposal in proposals | filter: proposal1filter' )
               th {{$index}}
               td
-                span {{proposal.sender}}
+                a(ui-sref='users.show({userId:proposal.sender._id})') {{proposal.sender.username}}
               td 
                 span {{proposal.title}}
               td 
@@ -35,3 +35,7 @@ container-fluid
                 //- isPending: {type: Boolean, default: true, required: true},
                 //- isAccepted: Boolean,
                 //- createdAt: {type: Date, default: Date.now, required: true}
+
+            tr(ng-repeat='trade in trades | filter : item1filter')
+              th {{$index}}
+              td 
