@@ -7,7 +7,7 @@ angular.module('dating-app')
       return $http.get('/users');
     }
 
-    function getIncidents(userId) {
+    function getIncidents() {
       console.log("running getIncidents");
       return $http.get('/incidents');
     }

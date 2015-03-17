@@ -5,12 +5,13 @@ angular.module('dating-app')
 
     console.log('rootscope.user:', $rootScope.user._id);
 
-    User.getIncidents($rootScope.user._id)
+    User.getIncidents()
     .then(response => {
       console.log('hello world');
       console.log("response", response);
-      $scope.incidentNum = response.data.messages;
-      console.log($scope.messages);
+      var incidents = response.data.incidents;
+      $scope.incidentNum = incidents.length;
+      console.log($incidentNum);
     });
 
     $scope.logout = function(){
