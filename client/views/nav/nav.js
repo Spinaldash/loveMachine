@@ -7,9 +7,11 @@ angular.module('dating-app')
 
     User.getIncidents($rootScope.user._id)
     .then(response => {
-      $scope.messages = response.data.messages;
+      console.log('hello world');
+      console.log("response", response);
+      $scope.incidentNum = response.data.messages;
       console.log($scope.messages);
-    })
+    });
 
     $scope.logout = function(){
       delete $rootScope.user;

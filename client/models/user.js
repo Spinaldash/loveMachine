@@ -8,7 +8,8 @@ angular.module('dating-app')
     }
 
     function getIncidents(userId) {
-      return $http.get('/')
+      console.log("running getIncidents");
+      return $http.get('/incidents');
     }
 
     function getUser(userId) {
