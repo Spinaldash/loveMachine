@@ -1,5 +1,3 @@
-/* global StripeCheckout:true */
-
 'use strict';
 
 angular.module('dating-app')
@@ -12,7 +10,7 @@ angular.module('dating-app')
       gift: '=',
       receiver: '='
     };
-    o.link = function(scope, element, attrs) {};
+    o.link = function() {};
     o.controller = ['$rootScope', '$scope', ($rootScope, $scope) => {
       $scope.purchase = function() {
         var info = {
