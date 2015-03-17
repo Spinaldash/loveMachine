@@ -26,7 +26,11 @@ angular.module('dating-app', ['ui.router', 'ngSanitize','ngMessages', 'satellize
       .state('gifts.store', {url: '', templateUrl: '/views/gifts/gifts-store.html', controller: 'GiftsStoreCtrl'})
       .state('gifts.sent', {url: '/sent', templateUrl: '/views/gifts/gifts-sent.html', controller: 'GiftsSentCtrl'})
       .state('gifts.received', {url: '/received', templateUrl: '/views/gifts/gifts-received.html', controller: 'GiftsReceivedCtrl'})
-      .state('gifts.create', {url: '/create', templateUrl: '/views/gifts/gifts-create.html', controller: 'GiftsCreateCtrl'});
+      .state('gifts.create', {url: '/create', templateUrl: '/views/gifts/gifts-create.html', controller: 'GiftsCreateCtrl'})
+
+      .state('dates', {url: '/dates', templateUrl: '/views/dates/dates.html', abstract: true})
+      .state('dates.propose', {url: '/propose/{userId:[0-9a-f]{24}}', templateUrl: 'views/dates/dates-propose.html', controller: 'DatesProposeCtrl'})
+
 
     $authProvider.facebook({ clientId: '1609867685900087' });
   }])

@@ -13,7 +13,7 @@
     .col-md-12
       a.btn.btn-love.btn-full: i.fa.fa-comment &nbsp; Send Message
     .col-md-12
-      a.btn.btn-primary.btn-full: i.fa.fa-coffee &nbsp; Propose Date
+      a.btn.btn-primary.btn-full(ui-sref='dates.propose({userId:showUser._id})'): i.fa.fa-coffee &nbsp; Propose Date
 
   .col-md-8
     .col-md-12
@@ -28,4 +28,4 @@
         a(ui-sref='gifts.store') Send a Gift!
     .col-md-12(ng-if='gifts')
       .col-md-3(ng-repeat='gift in gifts')
-        img(src='http://placehold.it/75x75')
+        img(ng-src='{{gift.photo}}', width='75', height='75')

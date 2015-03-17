@@ -11,6 +11,7 @@ module.exports = {
     Item.findById(request.params.itemId, (err, item) => {
       item.purchase(request.payload.token, function(err, charge) {
         if(err) {
+          console.log(err);
           reply().code(400);
         }else{
           let gift = new Gift();
