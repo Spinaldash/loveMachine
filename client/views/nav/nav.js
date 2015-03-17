@@ -9,10 +9,4 @@ angular.module('dating-app')
       $scope.incidentNum = incidents.length;
     });
 
-    $scope.logout = function(){
-      delete $rootScope.user;
-      $window.localStorage.clear();
-      $state.go('login');
-    };
-
   }]);

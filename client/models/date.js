@@ -8,11 +8,11 @@ angular.module('dating-app')
     }
 
     function agree(propId) {
-      return $http.post(`/proposals/${propId}/accept`)
+      return $http.post(`/proposals/${propId}/accept`);
     }
 
     function decline(propId) {
-      return $http.post(`/proposals/${propId}/decline`)
+      return $http.post(`/proposals/${propId}/decline`);
     }
 
     return {propose:propose, agree:agree, decline:decline};

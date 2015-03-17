@@ -14,19 +14,30 @@ angular.module('dating-app')
       Dates.decline(propId)
       .then(()=>{
         $state.reload();
-      })
-    }
+      });
+    };
 
     $scope.acceptProposal = function(propId) {
       Dates.agree(propId)
       .then(() => {
         $state.reload();
-      })
-    }
+      });
+    };
 
-    User.getProposals()
+    User.getPendingProposals()
     .then(response => {
-      $scope.proposals = response.data.proposals;
+      $scope.pendingProposals = response.data.proposals;
+    });
+
+    User.getAcceptedProposals()
+    .then(response => {
+      $scope.acceptedProposals = response.data.proposals;
+    });
+
+    User.getIncidents()
+    .then(response => {
+      $scope.incidents = response.data.incidents;
+      console.log($scope.incidents);
     });
 
   }]);
