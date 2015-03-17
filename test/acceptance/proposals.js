@@ -15,6 +15,7 @@ var cp = require('child_process');
 var dbname = process.env.MONGO_URL.split('/')[3];
 var User = require('../../server/models/user');
 var Proposal = require('../../server/models/proposal');
+var moment = require('moment');
 var token;
 
 describe('Incidents', function() {
@@ -33,7 +34,8 @@ describe('Incidents', function() {
         url: '/users/000000000000000000000002/propose',
         payload: {
           title: 'Monster Truck Rally',
-          description: 'Big trucks go smash! Boom!'
+          description: 'Big trucks go smash! Boom!',
+          proposedDate: moment().add(3, 'd')
         },
         headers: {
           Authorization: 'Bearer ' + token
