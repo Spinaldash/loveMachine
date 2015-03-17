@@ -7,6 +7,7 @@ module.exports = {
   handler: function(request, reply) {
     mailgun.send(request.auth.credentials._id, request.payload.receiverId, request.payload.body, (err) => {
       if(err) {
+        console.log(err);
         reply(err).code(400);
       }else{
         let incident = new Incident({

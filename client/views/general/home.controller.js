@@ -15,4 +15,11 @@ angular.module('dating-app')
       $scope.users = response.data.users;
     });
 
+    $scope.wink = function(userId) {
+      User.wink(userId)
+      .then(() => {
+        $state.go('home');
+      });
+    };
+
   }]);
