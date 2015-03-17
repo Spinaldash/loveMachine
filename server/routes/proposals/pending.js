@@ -11,7 +11,7 @@ module.exports = {
           {sender: currentUser},
           {receiver: currentUser}
         ]},
-        {pending: true}
+        {isPending: true}
       ]
     };
     Proposal.find(params, function(err, proposals) {
