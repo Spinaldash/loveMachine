@@ -1,0 +1,25 @@
+//- section.all-items
+//-   .container
+//-     .row
+//-       .col-md-12.search-item.jumbotron(ng-repeat='match in searchItems | filter: { username: search.name }')
+//-         h3 {{match.email}}
+h4.search-results-title Search results for {{search.name}}...
+
+.col-md-12(style='padding-top: 25px;')
+  .col-md-3(ng-repeat='match in searchItems | filter: { username: search.name }')
+    .thumbnail
+      .outer-image.thumbnail
+        img.img-responsive(ng-src='{{match.photos[0]}}', width='175', height='175')
+      .caption
+        .row.information
+          .col-md-12.item
+            h5: strong {{match.realname}}
+          .col-md-12.item
+            h6: i.fa.fa-child &nbsp; {{match.age}} years old
+          .col-md-12.item
+            h6: i.fa.fa-map-marker &nbsp; {{match.location}} 
+        .row
+          .col-md-12
+            a.btn.btn-default.btn-full.btn-sm(ui-sref='users.show({userId:match._id})'): i.fa.fa-info &nbsp; More Information
+          .col-md-12
+            a.btn.btn-love.btn-full.btn-sm: i.fa.fa-comments-o &nbsp; Send Message

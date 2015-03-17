@@ -11,7 +11,7 @@ module.exports = {
         params.$and[0].$or.push({gender:pref});
       }
     }
-    
+
     let prefQuery = {};
     prefQuery['lookingFor.' + request.auth.credentials.gender] = true;
     params.$and.push(prefQuery);

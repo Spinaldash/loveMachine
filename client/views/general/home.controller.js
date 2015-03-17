@@ -2,6 +2,10 @@
 
 angular.module('dating-app')
   .controller('HomeCtrl', ['$rootScope', '$scope', '$state', 'User', function($rootScope, $scope, $state, User){
+
+    $scope.newUser ={};
+    $scope.newUser.lookingFor = {Male: false, Female: false, Other: false};
+
     if (!$rootScope.user) {
       $state.go('/');
     }
