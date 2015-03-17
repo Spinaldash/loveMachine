@@ -8,8 +8,11 @@ angular.module('dating-app')
     }
 
     function getIncidents() {
-      console.log("running getIncidents");
       return $http.get('/incidents');
+    }
+
+    function getProposals() {
+      return $http.get('/proposals');
     }
 
     function getUser(userId) {
@@ -49,6 +52,6 @@ angular.module('dating-app')
       return $http.get('/users/' + userId);
     }
 
-    return {findAll:findAll, getUser:getUser, update:update, show:show, register:register, upload:upload, filterUsers:filterUsers, getIncidents:getIncidents};
+    return {findAll:findAll, getUser:getUser, update:update, show:show, register:register, upload:upload, filterUsers:filterUsers, getIncidents:getIncidents, getProposals:getProposals};
 
   }]);
