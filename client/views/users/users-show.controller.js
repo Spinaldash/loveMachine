@@ -15,6 +15,10 @@ angular.module('dating-app')
       .then(() => {
         $rootScope.message = false;
       });
+      if ($scope.showUser.phone) {
+        User.sms(payload)
+        .then(() => { $state.reload(); });
+      }
     };
 
     User.show($state.params.userId)
