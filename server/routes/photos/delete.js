@@ -6,9 +6,13 @@ var _ = require('lodash');
 module.exports = {
   handler: function(request, reply) {
     User.findById(request.params.userId, function(err, user) {
-      if(_.indexOf(user.photos, request.payload.photoName) === -1) {
+      let deletedIndex = _.indexOf(user.photos, request.payload.photoName);
+      if(deletedIndex === -1) {
         reply().code(400);
       }else{
+        if(deletedIndex === user.primary) {
+          user.primary = -1;
+        }
         _.pull(user.photos, request.payload.photoName);
         User.findByIdAndUpdate(request.params.userId, user, function(err) {
           reply().code(err ? 400 : 200);
