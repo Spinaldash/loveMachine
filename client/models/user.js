@@ -1,3 +1,5 @@
+/* jshint loopfunc:true, camelcase:false */
+
 'use strict';
 
 angular.module('dating-app')
@@ -7,8 +9,16 @@ angular.module('dating-app')
       return $http.get('/users');
     }
 
-    function getIncidents(userId) {
-      return $http.get('/')
+    function getIncidents() {
+      return $http.get('/incidents');
+    }
+
+    function getPendingProposals() {
+      return $http.get('/proposals/pending');
+    }
+
+    function getAcceptedProposals() {
+      return $http.get('/proposals/accepted');
     }
 
     function getUser(userId) {
@@ -23,8 +33,12 @@ angular.module('dating-app')
       return $http.post(`/users/${userId}`, user);
     }
 
-    function filterUsers(filters) {
-      return $http.get('/users');
+    function wink(userId) {
+      return $http.post(`/users/${userId}/wink`);
+    }
+
+    function message(body) {
+      return $http.post(`/messages/email`, body);
     }
 
     function upload(userId, photos){
@@ -35,7 +49,7 @@ angular.module('dating-app')
           url: '/users/' + userId + '/upload',
           method: 'POST',
           file: file
-        }).success(function(data, status, headers, config){
+        }).success(function(){
           count++;
           $rootScope.$broadcast('upload', count);
         }).error(function(){
@@ -48,6 +62,6 @@ angular.module('dating-app')
       return $http.get('/users/' + userId);
     }
 
-    return {findAll:findAll, getUser:getUser, update:update, show:show, register:register, upload:upload, filterUsers:filterUsers, getIncidents:getIncidents};
+    return {findAll:findAll, getUser:getUser, update:update, show:show, register:register, upload:upload, getIncidents:getIncidents, wink:wink, message:message, getPendingProposals:getPendingProposals, getAcceptedProposals:getAcceptedProposals };
 
   }]);

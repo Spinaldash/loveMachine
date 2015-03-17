@@ -12,4 +12,8 @@ angular.module('dating-app')
       $rootScope.user = response.data.user;
     });
 
+    $scope.makePrimary = function(index) {
+      console.log(index);
+    };
+
   }]);

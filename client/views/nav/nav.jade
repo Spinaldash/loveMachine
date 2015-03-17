@@ -2,7 +2,7 @@
   .col-md-12
     .col-md-4(style='padding-left: 0px')
       .image
-        img(ng-src='{{user.photos[0]}}', height='50', widht='50', style='border-radius: 5px;')
+        img(ng-src='{{user.photos[0]}}', height='50', width='50', style='border-radius: 5px;')
     .col-md-8(style='padding-left: 0px')
       h6(style='font-weight: bolder; font-size: 1.5rem; color: #999; margin-top: 2px;') {{user.realname}}
       h6.text-capitalize.item: a(ui-sref='account.profile') my account
@@ -33,7 +33,7 @@
         a(ui-sref='account.history')
           span.fa.fa-envelope-o
           span messages &nbsp;
-          span.badge 4
+          span.badge {{incidentNum}}
         
     .header
       small.text-capitalize Gifts

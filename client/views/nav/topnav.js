@@ -15,8 +15,8 @@ angular.module('dating-app')
         $state.go('search');
         console.log('the search is', search);
         $rootScope.search = search;
-        console.log('response.data.users', response.data.users)
+        console.log('response.data.users', response.data.users);
         $rootScope.searchItems = response.data.users;
-      })
+      });
     };
   }]);

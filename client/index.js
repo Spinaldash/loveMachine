@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('dating-app', ['ui.router', 'ngSanitize','ngMessages', 'satellizer', 'angularFileUpload'])
+angular.module('dating-app', ['ui.router', 'ngSanitize','ngMessages', 'satellizer', 'angularFileUpload', 'angularMoment'])
   .config(['$stateProvider', '$urlRouterProvider', '$authProvider', function($stateProvider, $urlRouterProvider, $authProvider) {
     $urlRouterProvider.otherwise('/login');
 
@@ -29,7 +29,7 @@ angular.module('dating-app', ['ui.router', 'ngSanitize','ngMessages', 'satellize
       .state('gifts.create', {url: '/create', templateUrl: '/views/gifts/gifts-create.html', controller: 'GiftsCreateCtrl'})
 
       .state('dates', {url: '/dates', templateUrl: '/views/dates/dates.html', abstract: true})
-      .state('dates.propose', {url: '/propose/{userId:[0-9a-f]{24}}', templateUrl: 'views/dates/dates-propose.html', controller: 'DatesProposeCtrl'})
+      .state('dates.propose', {url: '/propose/{userId:[0-9a-f]{24}}', templateUrl: 'views/dates/dates-propose.html', controller: 'DatesProposeCtrl'});
 
 
     $authProvider.facebook({ clientId: '1609867685900087' });

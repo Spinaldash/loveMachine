@@ -19,7 +19,8 @@ module.exports = [
   {method: 'post', path: '/users/{userId}/propose', config: require('../routes/proposals/create')},
   {method: 'post', path: '/proposals/{proposalId}/accept', config: require('../routes/proposals/accept')},
   {method: 'post', path: '/proposals/{proposalId}/decline', config: require('../routes/proposals/decline')},
-  {method: 'get', path: '/proposals', config: require('../routes/proposals/pending')},
+  {method: 'get', path: '/proposals/pending', config: require('../routes/proposals/pending')},
+  {method: 'get', path: '/proposals/accepted', config: require('../routes/proposals/accepted')},
 
   {method: 'get', path: '/incidents', config: require('../routes/incidents/index')},
 

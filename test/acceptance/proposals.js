@@ -164,7 +164,7 @@ describe('Incidents', function() {
     it('should list pending proposals', function(done) {
       var options = {
         method: 'get',
-        url: '/proposals',
+        url: '/proposals/pending',
         headers: {
           Authorization: 'Bearer ' + token
         }
@@ -178,7 +178,36 @@ describe('Incidents', function() {
     it('should NOT list pending proposals, -bad Token', function(done) {
       var options = {
         method: 'get',
-        url: '/proposals',
+        url: '/proposals/pending',
+        headers: {
+          Authorization: 'BeErer ' + token
+        }
+      };
+      server.inject(options, function(response) {
+        expect(response.statusCode).to.equal(401);
+        done();
+      });
+    });
+  });
+  describe('get /proposals', function() {
+    it('should list accepted proposals', function(done) {
+      var options = {
+        method: 'get',
+        url: '/proposals/accepted',
+        headers: {
+          Authorization: 'Bearer ' + token
+        }
+      };
+      server.inject(options, function(response) {
+          expect(response.statusCode).to.equal(200);
+          expect(response.result.proposals.length).to.equal(1);
+          done();
+      });
+    });
+    it('should NOT list accepted proposals, -bad Token', function(done) {
+      var options = {
+        method: 'get',
+        url: '/proposals/accepted',
         headers: {
           Authorization: 'BeErer ' + token
         }
