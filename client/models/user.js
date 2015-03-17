@@ -62,6 +62,6 @@ angular.module('dating-app')
       return $http.get('/users/' + userId);
     }
 
-    return {findAll:findAll, getUser:getUser, update:update, show:show, register:register, upload:upload, getIncidents:getIncidents, getProposals:getProposals, wink:wink, message:message};
+    return {findAll:findAll, getUser:getUser, update:update, show:show, register:register, upload:upload, getIncidents:getIncidents, wink:wink, message:message, getPendingProposals:getPendingProposals, getAcceptedProposals:getAcceptedProposals };
 
   }]);
