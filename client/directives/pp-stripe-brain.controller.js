@@ -23,6 +23,7 @@ angular.module('dating-app')
           senderId: data.sender._id,
           receiverId: JSON.parse(data.receiver)._id
         };
+        console.log(item);
         Gift.purchaseGift(data.gift._id, item)
         .then( () => {
           $state.go('gifts.store');
@@ -34,8 +35,8 @@ angular.module('dating-app')
       data = info;
       handler.open({
         name:        'Pied Piper',
-        description: info.gift.name,
-        amount:      info.gift.price * 100
+        description: data.gift.name,
+        amount:      data.gift.price * 100
       });
     });
   }];

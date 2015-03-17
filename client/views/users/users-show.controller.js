@@ -14,7 +14,6 @@ angular.module('dating-app')
     Gift.userGifts($state.params.userId)
     .then(response => {
       $scope.gifts = response.data.gifts;
-      console.log($scope.gifts);
     });
 
   }]);
