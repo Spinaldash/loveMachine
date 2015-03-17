@@ -1,15 +1,14 @@
-.col-md-12.side-menu(ng-controller='NavCtrl')
+.col-md-12.side-menu.sideNavColor(ng-controller='NavCtrl')
   .col-md-12
     .col-md-4(style='padding-left: 0px')
       .image
         img(ng-src='{{user.photos[user.primary]}}', height='50', width='50', style='border-radius: 5px;')
     .col-md-8(style='padding-left: 0px')
-      h6(style='font-weight: bolder; font-size: 1.5rem; color: #999; margin-top: 2px;') {{user.realname}}
-      h6.text-capitalize.item: a(ui-sref='account.profile') my account
-  
+      h6.navPosition(style='font-weight: bolder; font-size: 1.5rem; color: #999; margin-top: 2px;') {{user.realname}}
+      h6.text-capitalize.item.navPosition: a(ui-sref='account.profile') my account
   .col-md-12
     .header
-      small.text-capitalize information
+      small.text-capitalize.colorized information
     .item
       h5
         a(ui-sref='home')
@@ -17,17 +16,17 @@
           span home
     .item
       h5
-        a(href='#')
+        a(ui-sref='account.history')
           span.fa.fa-history
           span history
     .item
       h5
-        a(ui-sref='history')
+        a(ui-sref='account.history')
           span.fa.fa-comment-o
           span Notifications
         
     .header
-      small.text-capitalize Communication
+      small.text-capitalize.colorized Communication
     .item
       h5
         a(ui-sref='account.history')
@@ -36,7 +35,7 @@
           span.badge {{incidentNum}}
         
     .header
-      small.text-capitalize Gifts
+      small.text-capitalize.colorized Gifts
     .item
       h5
         a(ui-sref='gifts.store')
