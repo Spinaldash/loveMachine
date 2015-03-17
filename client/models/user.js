@@ -45,6 +45,10 @@ angular.module('dating-app')
       return $http.post(`/messages/txt`, body);
     }
 
+    function markPrimary(index) {
+      return $http.post(`/photos/${index}/markprimary`);
+    }
+
     function upload(userId, photos){
       var count = 0;
       for (var i = 0; i < photos.length; i++){
@@ -66,6 +70,6 @@ angular.module('dating-app')
       return $http.get('/users/' + userId);
     }
 
-    return {findAll:findAll, getUser:getUser, update:update, show:show, register:register, upload:upload, getIncidents:getIncidents, wink:wink, message:message, sms:sms, getPendingProposals:getPendingProposals, getAcceptedProposals:getAcceptedProposals };
+    return {findAll:findAll, getUser:getUser, update:update, show:show, register:register, upload:upload, getIncidents:getIncidents, wink:wink, message:message, sms:sms, getPendingProposals:getPendingProposals, getAcceptedProposals:getAcceptedProposals, markPrimary:markPrimary};
 
   }]);

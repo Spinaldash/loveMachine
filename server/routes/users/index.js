@@ -1,6 +1,7 @@
 'use strict';
 
 let User = require('../../models/user');
+var _ = require('lodash');
 
 module.exports = {
   handler: function(request, reply){
@@ -18,6 +19,10 @@ module.exports = {
 
     User.find(params, (err, users) => {
       if(err){reply().code(400);}
+
+      users = _.reject(users, (user) =>{
+        return user.facebookId === request.auth.credentials.facebookId;
+      });
       reply({users:users});
     });
   }

@@ -37,7 +37,7 @@ container-fluid
               th Sender
               th Created    
           tbody
-            tr(ng-repeat='incident in incidents | filter:{type:"wink"}' )
+            tr(ng-repeat='incident in incidents | filter:{type:"wink"} | filter: incident1filter' )
               th {{$index}}
               td
                 a(ui-sref='users.show({userId:incident.sender._id})') {{incident.sender.username}}

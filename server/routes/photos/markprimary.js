@@ -7,7 +7,7 @@ module.exports = {
     User.findById(request.auth.credentials._id, function(err, user) {
       user.primary = request.params.index;
       user.save(function() {
-        reply();
+        reply({user:user});
       });
     });
   }

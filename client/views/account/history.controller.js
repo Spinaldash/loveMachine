@@ -10,6 +10,13 @@ angular.module('dating-app')
       return true;
     };
 
+    $scope.incident1filter = function(incident) {
+      if(incident.sender._id === $rootScope.user._id) {
+        return false;
+      }
+      return true;
+    };
+
     $scope.declineProposal = function(propId) {
       Dates.decline(propId)
       .then(()=>{

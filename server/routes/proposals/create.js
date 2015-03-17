@@ -9,7 +9,8 @@ module.exports = {
   validate: {
     payload: {
       title: Joi.string().required(),
-      description: Joi.string().required()
+      description: Joi.string().required(),
+      proposedDate: Joi.date().required()
     }
   },
   handler: function(request, reply){
@@ -17,7 +18,8 @@ module.exports = {
        title: request.payload.title,
        description: request.payload.description,
        sender: request.auth.credentials._id,
-       receiver: request.params.userId
+       receiver: request.params.userId,
+       proposedDate: request.payload.proposedDate
      });
      let incident = new Incident({
        type: 'proposal',
