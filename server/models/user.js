@@ -31,7 +31,7 @@ let userSchema = mongoose.Schema({
     Other: Boolean
   },
   photos: [String],
-  primary: {type: Number, default: -1, required: true},
+  primary: {type: Number, default: 0, required: true},
   admin: {type: Boolean, default: false, required: true},
   createdAt: {type: Date, default: Date.now, required: true}
 });

@@ -11,7 +11,7 @@ module.exports = {
         reply().code(400);
       }else{
         if(deletedIndex === user.primary) {
-          user.primary = -1;
+          user.primary = 0;
         }
         _.pull(user.photos, request.payload.photoName);
         User.findByIdAndUpdate(request.params.userId, user, function(err) {
