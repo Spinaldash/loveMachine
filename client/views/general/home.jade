@@ -25,7 +25,7 @@
   .col-md-3(ng-repeat='user in users | filter:{gender: filterUser.gender}:true') 
     .thumbnail
       .outer-image.thumbnail
-        img.img-responsive(ng-src='{{user.photos[0]}}', width='175', height='175')
+        a.btn.btn-default.btn-full.btn-sm(ui-sref='users.show({userId:user._id})'): img.img-responsive(ng-src='{{user.photos[0]}}', width='175', height='175')
       .caption
         .row.information
           .col-md-12.item
