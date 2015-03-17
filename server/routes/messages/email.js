@@ -5,7 +5,7 @@ let Incident = require('../../models/incident');
 
 module.exports = {
   handler: function(request, reply) {
-    mailgun.send(request.payload.senderId, request.payload.receiverId, request.payload.body, (err) => {
+    mailgun.send(request.auth.credentials._id, request.payload.receiverId, request.payload.body, (err) => {
       if(err) {
         reply(err).code(400);
       }else{

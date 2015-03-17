@@ -11,6 +11,7 @@
       "Female" : true,
       "Other" : false
       },
+    "admin" : true,
     "createdAt" : {"$date":1421111111111}
   },
   {
@@ -25,6 +26,7 @@
       "Female" : false,
       "Other" : false
       },
+    "admin" : false,
     "createdAt" : {"$date":1424828111020}
   }
 ]

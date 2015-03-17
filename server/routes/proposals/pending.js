@@ -14,7 +14,7 @@ module.exports = {
         {isPending: true}
       ]
     };
-    Proposal.find(params, function(err, proposals) {
+    Proposal.find(params).populate('sender receiver').exec(function(err, proposals) {
       if(err || !proposals) {
         reply().code(400);
       }else{
