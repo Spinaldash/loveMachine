@@ -1,11 +1,18 @@
 form(style='margin-top: 50px;')
 .form-group
+  label Name:
   input.form-control(type='text', ng-model='user.realname', placeholder='Real Name')
 .form-group
+  label Email
   input.form-control(type='email', ng-model='user.email', placeholder='Email')
 .form-group
+  label Zipcode:
   input.form-control(type='text', ng-model='user.location', placeholder='Location')
 .form-group
+  label Phone:
+  input.form-control(type='tel', ng-model='user.phone', placeholder='Phone')
+.form-group
+  label Bio:
   textarea.form-control(ng-model='user.bio', rows='4', placeholder='Bio')
 .form-group
   submit.btn.btn-love(ng-click='submit(user)') Update

@@ -3,6 +3,9 @@
 angular.module('dating-app')
   .controller('HomeCtrl', ['$rootScope', '$scope', '$state', 'User', function($rootScope, $scope, $state, User){
 
+    $scope.filterUser ={};
+    $scope.filterUser.location = $scope.user.location
+    $scope.filterUser.age = $scope.user.age
     $scope.newUser ={};
     $scope.newUser.lookingFor = {Male: false, Female: false, Other: false};
 
@@ -20,6 +23,10 @@ angular.module('dating-app')
       .then(() => {
         $state.go('home');
       });
+    };
+
+    $scope.filterAge = function(user) {
+      return user.age <= $scope.filterUser.age;
     };
 
   }]);
