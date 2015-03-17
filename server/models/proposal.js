@@ -9,7 +9,8 @@ let proposalSchema = mongoose.Schema({
   receiver: {type: mongoose.Schema.ObjectId, ref: 'User', required: true},
   isPending: {type: Boolean, default: true, required: true},
   isAccepted: Boolean,
-  createdAt: {type: Date, default: Date.now, required: true}
+  createdAt: {type: Date, default: Date.now, required: true},
+  proposedDate: Date
 });
 
 proposalSchema.methods.accept = function(cb) {
