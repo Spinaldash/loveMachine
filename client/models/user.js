@@ -7,6 +7,10 @@ angular.module('dating-app')
       return $http.get('/users');
     }
 
+    function getIncidents(userId) {
+      return $http.get('/')
+    }
+
     function getUser(userId) {
       return $http.get(`/users/${userId}`);
     }
@@ -40,5 +44,5 @@ angular.module('dating-app')
       return $http.get('/users/' + userId);
     }
 
-    return {findAll:findAll, getUser:getUser, update:update, show:show, register:register, upload:upload};
+    return {findAll:findAll, getUser:getUser, update:update, show:show, register:register, upload:upload, getIncidents:getIncidents};
   }]);

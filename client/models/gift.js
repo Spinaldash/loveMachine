@@ -7,7 +7,7 @@ angular.module('dating-app')
       return $http.get(`/users/${userId}/gifts`);
     }
 
-    function getItems() {
+    function getItems(userId) {
       return $http.get(`/items`);
     }
 
