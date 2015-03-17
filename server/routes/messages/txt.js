@@ -5,7 +5,7 @@ let Incident = require('../../models/incident');
 
 module.exports = {
   handler: function(request, reply){
-    Txt.send(request.payload.senderId, request.payload.receiverId, request.payload.body, function(err, message){
+    Txt.send(request.auth.credentials._id, request.payload.receiverId, request.payload.body, function(err, message){
       if(err) {
         reply(message).code(400);
       }else{
