@@ -18,6 +18,7 @@ module.exports = {
 
     User.find(params, (err, users) => {
       if(err){reply().code(400);}
+      _.pull(users, request.auth.credentials._id);
       reply({users:users});
     });
   }
