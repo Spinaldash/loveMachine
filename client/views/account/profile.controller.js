@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('dating-app')
-  .controller('AccountProfileCtrl', ['$rootScope', '$scope', '$window', '$state', '$auth', '$location', 'User', function($rootScope, $scope, $window, $state, $auth, $location, User){
+  .controller('AccountProfileCtrl', ['$rootScope', '$scope', '$window', '$state', 'User', function($rootScope, $scope, $window, $state, User){
     if (!$rootScope.user) {
       $state.go('login');
     }
@@ -12,8 +12,13 @@ angular.module('dating-app')
       $rootScope.user = response.data.user;
     });
 
-    $scope.makePrimary = function(index) {
-      console.log(index);
+    $scope.makeDefault = function(index) {
+      User.markPrimary(index)
+      .then(response => {
+        $window.localStorage.user = JSON.stringify(response.data.user);
+        $rootScope.user = response.data.user;
+        $state.go('account.profile');
+      });
     };
 
   }]);

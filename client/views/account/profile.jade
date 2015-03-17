@@ -9,14 +9,14 @@
     .col-md-12
       .thumbnail
         .profile-picture
-          img(ng-src='{{user.photos[0]}}')
+          img(ng-src='{{user.photos[user.primary]}}', width='200', height='200')
 
   .col-md-8
     .col-md-12
       .messages.msg_receiver: p {{user.bio}}
     .col-md-12.page-header: h4 Photos
     .col-md-4(ng-repeat='photo in user.photos')
-      .thumbnail.make-primary(ng-click='makePrimary($index)')
+      .thumbnail.make-primary(ng-click='makeDefault($index)')
         img.img-responsive(ng-src='{{photo}}' width='125' height='125')
     .col-md-12: a(ui-sref='account.upload').btn.btn-modify.btn-full Add Pictures
     .col-md-12.page-header: h4 Gifts
