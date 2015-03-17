@@ -24,9 +24,9 @@ module.exports = {
        sender: request.payload.senderId,
        receiver: request.payload.receiverId
      });
-     mailgun.proposal(proposal._id);
      incident.save(function() {
        proposal.save(function() {
+         mailgun.proposal(proposal._id);
          reply({proposal:proposal});
        });
      });

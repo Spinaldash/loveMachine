@@ -12,4 +12,15 @@ let proposalSchema = mongoose.Schema({
   createdAt: {type: Date, default: Date.now, required: true}
 });
 
+proposalSchema.methods.accept = function(cb) {
+  this.isPending = false;
+  this.isAccepted = true;
+  this.save(cb);
+};
+
+proposalSchema.methods.decline = function(cb) {
+  this.isPending = this.isAccepted = false;
+  this.save(cb);
+};
+
 module.exports = mongoose.model('Proposal', proposalSchema);
