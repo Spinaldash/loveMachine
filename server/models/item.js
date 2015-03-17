@@ -2,7 +2,6 @@
 
 let mongoose = require('mongoose');
 let stripe = require('stripe')(process.env.STRIPE_KEY);
-let User = require('./user');
 
 let itemSchema = mongoose.Schema({
   name: {type: String, required: true},

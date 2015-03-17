@@ -7,6 +7,7 @@ let Mailgun = require('mailgun').Mailgun;
 let mg = new Mailgun(process.env.MG_KEY);
 
 let User = require('./user');
+let Proposal = require('./proposal');
 
 let adminSender = 'noreply@lonelyhearts.club';
 let emailSubject = function(senderUsername) {
@@ -32,6 +33,19 @@ let receiptBody = function(senderUsername, charge) {
   return body;
 };
 
+let proposalSubject = function(senderUsername){
+  let subject = `Lonely Hearts Mail - ${senderUsername} has offered a date!`;
+  return subject;
+};
+
+let proposalBody = function(senderUsername, receiverUsername, title, description){
+  let body = `Hi ${receiverUsername}!  You have a date offer from ${senderUsername}!
+
+  ${title}:
+  ${description}`;
+  return body;
+};
+
 module.exports = {
   send: function(senderId, receiverId, body, cb) {
     if (mailingEnabled) {
@@ -54,6 +68,17 @@ module.exports = {
         }else{
           mg.sendText(adminSender, sender.email, receiptSubject, receiptBody(sender.username, charge), cb);
         }
+      });
+    }
+  },
+  proposal: function(proposalId, cb) {
+    if (mailingEnabled){
+      Proposal.findById(proposalId, function(err, proposal){
+        User.findById(proposal.sender, function(err, sender) {
+          User.findById(proposal.receiver, function(err, receiver) {
+            mg.sendText(adminSender, receiver.email, proposalSubject(sender.username), proposalBody(sender.username, receiver.username, proposal.title, proposal.description), cb);
+          });
+        });
       });
     }
   }

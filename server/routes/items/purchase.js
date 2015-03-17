@@ -2,6 +2,7 @@
 
 var Item = require('../../models/item');
 var Gift = require('../../models/gift');
+var Incident = require('../../models/incident');
 var mailgun = require('../../models/mailgun');
 
 module.exports = {
@@ -18,9 +19,16 @@ module.exports = {
           gift.sender = request.payload.senderId;
           gift.receiver = request.payload.receiverId;
           gift.save(function(){
-            mailgun.receipt(request.payload.senderId, charge, function(err, msg){
-            if(err){console.log('Error', err);}
-            reply(gift);
+            let incident = new Incident({
+              type: 'gift',
+              sender: request.payload.senderId,
+              receiver: request.payload.receiverId
+            });
+            incident.save(function() {
+              mailgun.receipt(request.payload.senderId, charge, function(err, msg){
+                if(err){console.log('Error:', err, 'Msg:', msg);}
+                reply(gift);
+              });
             });
           });
         }

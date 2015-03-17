@@ -5,6 +5,7 @@
     "username" : "Mister",
     "photos" : ["test.jpg"],
     "gender" : "Male",
+    "email" : "test@test.test",
     "lookingFor" : {
       "Male" : false,
       "Female" : true,
@@ -18,6 +19,7 @@
     "username" : "Miss",
     "photos" : ["test2.jpg"],
     "gender" : "Female",
+    "email" : "test2@test.test",
     "lookingFor" : {
       "Male" : true,
       "Female" : false,

@@ -1,7 +1,6 @@
 'use strict';
 
 let mongoose = require('mongoose');
-let Item = require('./item');
 
 let giftSchema = mongoose.Schema({
   name: String,

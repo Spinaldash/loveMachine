@@ -1,0 +1,22 @@
+[
+  {
+    "_id" : {"$oid":"b00000000000000000000001"},
+    "sender" : {"$oid":"000000000000000000000002"},
+    "receiver" : {"$oid":"000000000000000000000001"},
+    "title" : "Dinner Date",
+    "description" : "Let's go to McDonalds!",
+    "isPending" : true,
+    "isAccepted" : null,
+    "createdAt" : {"$date":1421111111111}
+  },
+  {
+    "_id" : {"$oid":"b00000000000000000000002"},
+    "sender" : {"$oid":"000000000000000000000002"},
+    "receiver" : {"$oid":"000000000000000000000003"},
+    "title" : "Movie Date",
+    "description" : "Let's go to the movies!",
+    "isPending" : false,
+    "isAccepted" : true,
+    "createdAt" : {"$date":1421111111111}
+  }
+]
