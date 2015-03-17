@@ -1,30 +1,30 @@
 .container(ng-controller="HomeCtrl")
-.col-md-12(style='padding-top: 25px;')
-  .row
-    form(form='filterForm')
-      .col-sm-12.col-md-3
-        .form-group
-          label Age
-          input.form-control.location-input(type='number', ng-model='filterUser.age')
-      .col-sm-12.col-md-3
-        .form-group
-          label Zipcode
-          input.form-control.location-input(type='text', ng-model='filterUser.location', ng-minlength='5', ng-maxlength='5')
+//- .col-md-12(style='padding-top: 25px;')
+//-   .row
+//-     form(form='filterForm')
+//-       .col-sm-12.col-md-3
+//-         .form-group
+//-           label Age
+//-           input.form-control.location-input(type='number', ng-model='filterUser.age')
+//-       .col-sm-12.col-md-3
+//-         .form-group
+//-           label Zipcode
+//-           input.form-control.location-input(type='text', ng-model='filterUser.location', ng-minlength='5', ng-maxlength='5')
       
-  .col-md-3(ng-repeat='user in users | filter: {location: filterUser.location}:true | filter: filterAge') 
-    .thumbnail
-      .outer-image.thumbnail
-        a.btn.btn-default.btn-full.btn-sm(ui-sref='users.show({userId:user._id})'): img.img-responsive(ng-src='{{user.photos[0]}}', width='175', height='175')
-      .caption
-        .row.information
-          .col-md-12.item
-            h5: strong {{user.realname}}
-          .col-md-12.item
-            h6: i.fa.fa-child &nbsp; {{user.age}} years old
-          .col-md-12.item
-            h6: i.fa.fa-map-marker &nbsp; {{user.location}} 
-        .row
-          .col-md-12
-            a.btn.btn-default.btn-full.btn-sm(ui-sref='users.show({userId:user._id})'): i.fa.fa-info &nbsp; More Information
-          .col-md-12
-            a.btn.btn-danger.btn-full.btn-sm(ng-click='wink(user._id)'): i.fa.fa-heart &nbsp; Send Wink
+.col-md-3(ng-repeat='user in users') 
+  .thumbnail
+    .outer-image.thumbnail
+      a.btn.btn-default.btn-full.btn-sm(ui-sref='users.show({userId:user._id})'): img.img-responsive(ng-src='{{user.photos[0]}}', width='175', height='175')
+    .caption
+      .row.information
+        .col-md-12.item
+          h5: strong {{user.realname}}
+        .col-md-12.item
+          h6: i.fa.fa-child &nbsp; {{user.age}} years old
+        .col-md-12.item
+          h6: i.fa.fa-map-marker &nbsp; {{user.location}} 
+      .row
+        .col-md-12
+          a.btn.btn-default.btn-full.btn-sm(ui-sref='users.show({userId:user._id})'): i.fa.fa-info &nbsp; More Information
+        .col-md-12
+          a.btn.btn-danger.btn-full.btn-sm(ng-click='wink(user._id)'): i.fa.fa-heart &nbsp; Send Wink

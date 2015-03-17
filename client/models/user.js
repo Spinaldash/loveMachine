@@ -13,8 +13,12 @@ angular.module('dating-app')
       return $http.get('/incidents');
     }
 
-    function getProposals() {
-      return $http.get('/proposals');
+    function getPendingProposals() {
+      return $http.get('/proposals/pending');
+    }
+
+    function getAcceptedProposals() {
+      return $http.get('/proposals/accepted');
     }
 
     function getUser(userId) {
